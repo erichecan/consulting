@@ -1,0 +1,39 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - build
+      - '-t'
+      - 'asia-east1-docker.pkg.dev/stockmate-488805/triplan/consulting:$COMMIT_SHA'
+      - '-t'
+      - 'asia-east1-docker.pkg.dev/stockmate-488805/triplan/consulting:latest'
+      - '.'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - push
+      - '--all-tags'
+      - 'asia-east1-docker.pkg.dev/stockmate-488805/triplan/consulting'
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - consulting
+      - '--image=asia-east1-docker.pkg.dev/stockmate-488805/triplan/consulting:$COMMIT_SHA'
+      - '--region=asia-east1'
+      - '--platform=managed'
+      - '--allow-unauthenticated'
+      - '--min-instances=0'
+      - '--max-instances=3'
+      - '--cpu=0.5'
+      - '--memory=256Mi'
+      - '--port=8080'
+      - '--project=stockmate-488805'
+
+images:
+  - 'asia-east1-docker.pkg.dev/stockmate-488805/triplan/consulting:$COMMIT_SHA'
+  - 'asia-east1-docker.pkg.dev/stockmate-488805/triplan/consulting:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  /* BCG 风格色彩系统 */
+  --color-forest: #003F2D;
+  --color-sage: #177B57;
+  --color-gold: #C9A961;
+  --color-dark: #1A1A1A;
+  --color-slate: #5A5A5A;
+  --color-warm-white: #FAFAF7;
+  --color-white: #FFFFFF;
+  --color-border: #E5E5E0;
+  --color-muted: #F2F2EE;
+
+  /* 字体 */
+  --font-heading-en: var(--font-inter-tight), 'Inter Tight', sans-serif;
+  --font-body-en: var(--font-inter), 'Inter', sans-serif;
+  --font-heading-zh: var(--font-noto-serif-sc), 'Noto Serif SC', serif;
+  --font-body-zh: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-warm-white);
+  color: var(--color-dark);
+  font-family: var(--font-body-en);
+  line-height: 1.7;
+}
+
+::selection {
+  background-color: var(--color-forest);
+  color: var(--color-white);
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-warm-white);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 2px;
+}
