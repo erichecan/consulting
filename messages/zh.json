@@ -1,0 +1,737 @@
+{
+  "nav": {
+    "industries": "行業",
+    "solutions": "解決方案",
+    "cases": "案例",
+    "insights": "洞察",
+    "about": "關於我們",
+    "contact": "聯絡我們",
+    "industriesItems": {
+      "ecommerce": "電子商務",
+      "ecommerceDesc": "Fulfilment、庫存及退貨管理",
+      "wholesale": "批發及分銷",
+      "wholesaleDesc": "Network 設計及貨運",
+      "manufacturing": "製造業",
+      "manufacturingDesc": "倉庫及供應鏈管理"
+    },
+    "solutionsItems": {
+      "warehouse": "倉庫管理",
+      "warehouseDesc": "WMS 策略及落地實施",
+      "transportation": "運輸管理",
+      "transportationDesc": "TMS 及貨運優化",
+      "advisory": "顧問及培訓",
+      "advisoryDesc": "分拆式 COO 支援及團隊提升"
+    }
+  },
+  "footer": {
+    "tagline": "真誠建議。可量化成果。",
+    "description": "我哋同中型企業緊密合作，診斷結構性低效問題，落地持久的運營改善方案。",
+    "services": "服務",
+    "company": "公司",
+    "explore": "探索",
+    "diagnostic": "30 日診斷",
+    "implementation": "落地實施",
+    "advisory": "顧問服務",
+    "philosophy": "理念",
+    "approach": "我哋的方式",
+    "about": "關於我們",
+    "industries": "行業",
+    "insights": "洞察",
+    "contact": "聯絡",
+    "copyright": "© 2025 Meridian Advisory。版權所有。",
+    "privacy": "私隱政策",
+    "terms": "使用條款"
+  },
+  "home": {
+    "heroEyebrow": "卓越運營",
+    "heroHeadline": "我哋解決制約你增長的運營問題。",
+    "heroSub": "Meridian Advisory 同中型企業緊密合作，診斷結構性低效問題並落地持久改善方案 — 涵蓋倉庫管理、運輸及供應鏈各環節。",
+    "heroCta": "預約診斷",
+    "heroSecondary": "查看案例",
+    "statsLabel1": "項目案例",
+    "statsLabel2": "平均貨運節省",
+    "statsLabel3": "訂單準確率",
+    "statsLabel4": "首個可量化成果",
+    "whatWeDoEyebrow": "我哋做咩",
+    "whatWeDoHeadline": "運營顧問服務，90 日內交付首個可量化成果。",
+    "whatWeDoPara": "我哋唔係寫策略報告就算。我哋深入你嘅運營現場，全面梳理問題，落地改善措施 — 包括倉庫、Carrier Network 同庫存系統。",
+    "services": {
+      "warehouse": {
+        "title": "倉庫管理",
+        "desc": "WMS 設計、選型及落地實施。由 Directed Put-away 到 Pick Wave Logic — 完全配合你的運營實際。"
+      },
+      "transportation": {
+        "title": "運輸管理",
+        "desc": "TMS 落地及 Carrier Network 優化。統一可視化、動態 Routing、降低貨運成本。"
+      },
+      "advisory": {
+        "title": "顧問及培訓",
+        "desc": "分拆式 COO 支援及運營管理培訓，協助快速成長的團隊應對規模擴張挑戰。"
+      }
+    },
+    "industriesEyebrow": "服務行業",
+    "industriesHeadline": "專注三大運營場景。",
+    "industries": {
+      "ecommerce": {
+        "title": "電子商務",
+        "desc": "Peak Season 量能管理、全渠道庫存同步及退貨處理，服務 DTC 品牌及 Marketplace 賣家。"
+      },
+      "wholesale": {
+        "title": "批發及分銷",
+        "desc": "Network 整合、Carrier 管理及 TMS 落地，服務本地及全國性分銷商。"
+      },
+      "manufacturing": {
+        "title": "製造業",
+        "desc": "倉庫佈局重新設計、Slotting 優化及工業企業入庫/出庫流程改善。"
+      }
+    },
+    "casesEyebrow": "客戶成果",
+    "casesHeadline": "可量化成果。經驗證的實績。",
+    "casesCta": "查看所有案例",
+    "ctaHeadline": "準備好優化你的運營了嗎？",
+    "ctaSub": "由 30 日診斷開始。我哋全面梳理你的運營現況，找出最高價值的改善點 — 早於任何系統選型或落地實施之前。",
+    "ctaBtn": "預約診斷"
+  },
+  "cases": {
+    "eyebrow": "客戶成果",
+    "headline": "真實成果。\n可量化實績。",
+    "sub": "每個 Engagement 都針對特定的運營問題。以下是我哋客戶所取得的成果。",
+    "stats": {
+      "engagements": "項目案例",
+      "freightSavings": "平均貨運節省",
+      "orderAccuracy": "訂單準確率",
+      "firstOutcome": "首個可量化成果"
+    },
+    "readMore": "閱讀案例 →",
+    "ctaHeadline": "想見到相似成果？",
+    "ctaSub": "由 30 日診斷開始。我哋梳理你的運營現況，找出最高價值的改善點。",
+    "ctaBtn": "預約診斷 →",
+    "items": {
+      "ecommerce-wms-peak-readiness": {
+        "headline": "WMS 落地令揀貨錯誤率於 Peak Season 前下降 35%",
+        "summary": "一間擁有三個 Fulfilment Centre 的快速增長網店，需要應對 Peak Season 4 倍量能衝擊。我哋設計並部署了一套 WMS 方案，在 90 日內交付運營控制能力。",
+        "metrics": [
+          { "value": "35%", "label": "揀貨錯誤率下降" },
+          { "value": "28%", "label": "吞吐量提升" },
+          { "value": "99.4%", "label": "訂單準確率" }
+        ]
+      },
+      "wholesale-tms-freight-savings": {
+        "headline": "TMS 落地令逾 200 條日常 Route 的 Freight 支出下降 22%",
+        "summary": "一間每日運營 200 多條 Route 的地區性分銷商，對 Carrier 表現及 Route 成本毫無可視性。我哋的 TMS 落地方案統一了 Carrier 管理並引入動態 Route 優化。",
+        "metrics": [
+          { "value": "22%", "label": "貨運成本下降" },
+          { "value": "15%", "label": "平均送達時間加快" },
+          { "value": "4.8/5", "label": "司機滿意度評分" }
+        ]
+      },
+      "omnichannel-inventory-visibility": {
+        "headline": "實時庫存可視化消除 5 個銷售渠道的缺貨問題",
+        "summary": "一個在自家網站、兩個 Marketplace 及兩個零售夥伴同時銷售的消費品牌，長期面對超賣及缺貨問題。統一的庫存層在一個 Engagement 內同時解決兩個難題。",
+        "metrics": [
+          { "value": "40%", "label": "缺貨事件減少" },
+          { "value": "30%", "label": "積壓庫存持有成本下降" },
+          { "value": "2.1×", "label": "庫存周轉率提升" }
+        ]
+      },
+      "manufacturing-warehouse-optimisation": {
+        "headline": "倉庫重新設計在零資本支出下回收 32% 樓面空間",
+        "summary": "一間中型製造商因認為空間不足而租用場外倉儲。系統性倉庫分析透過 Slotting 及流程重設計，發現大量可回收容量。",
+        "metrics": [
+          { "value": "32%", "label": "樓面空間回收" },
+          { "value": "0", "label": "資本支出需求" },
+          { "value": "18%", "label": "揀貨路徑距離縮短" }
+        ]
+      },
+      "wholesale-distribution-network": {
+        "headline": "分銷網絡整合每年節省 140 萬美元",
+        "summary": "一間建材批發商同時運營六個覆蓋範圍重疊的地區倉庫，造成庫存及貨運成本重複。Network 合理化研究識別出覆蓋更廣的三倉庫模型。",
+        "metrics": [
+          { "value": "$1.4M", "label": "每年節省成本" },
+          { "value": "3", "label": "倉庫數量（由 6 減至 3）" },
+          { "value": "98%", "label": "送達 SLA 維持率" }
+        ]
+      },
+      "ecommerce-returns-processing": {
+        "headline": "退貨處理時間縮短一半，回收率達 87%",
+        "summary": "一個退貨率達 28% 的時裝平台，因分揀及補貨緩慢而在每單退貨中蝕利潤。設有明確分揀邏輯的專設退貨處理組別，將退貨從成本中心轉化為回收引擎。",
+        "metrics": [
+          { "value": "50%", "label": "退貨處理速度提升" },
+          { "value": "87%", "label": "可售商品回收率" },
+          { "value": "28%→18%", "label": "實際退貨成本率" }
+        ]
+      }
+    }
+  },
+  "caseDetail": {
+    "backToAll": "所有案例",
+    "industry": "行業",
+    "solution": "解決方案",
+    "client": "客戶",
+    "challenge": "挑戰",
+    "solution_section": "方案",
+    "results": "成果",
+    "keyOutcomes": "主要成果",
+    "readyHeadline": "想見到相似成果？",
+    "readySub": "由 30 日診斷開始。我哋梳理你的運營現況，在任何系統選型之前先找出最高價值的改善點。",
+    "readyCta": "預約診斷 →",
+    "relatedCases": "相關案例",
+    "tags": {
+      "WMS": "WMS",
+      "TMS": "TMS",
+      "E-Commerce": "電子商務",
+      "Peak Operations": "Peak Season 運營",
+      "Wholesale": "批發",
+      "Route Optimisation": "Route 優化",
+      "Omnichannel": "全渠道",
+      "Inventory": "庫存",
+      "Warehouse Optimisation": "倉庫優化",
+      "Manufacturing": "製造業",
+      "Layout": "佈局設計",
+      "Network Design": "Network 設計",
+      "Cost Reduction": "成本削減",
+      "Returns Management": "退貨管理",
+      "Operations": "運營"
+    }
+  },
+  "warehouse": {
+    "breadcrumbParent": "解決方案",
+    "eyebrow": "WMS 解決方案",
+    "headline": "倉庫管理系統，90 日內交付可量化成果",
+    "sub": "我哋為你設計、選型並落地最匹配你運營實際的 WMS — 而非 Vendor 的預設配置。每個 Engagement 均以 90 日內交付首個可量化成果為錨點。",
+    "ctaBook": "預約診斷 →",
+    "ctaCases": "查看 WMS 案例",
+    "stats": [
+      { "value": "35%", "label": "平均揀貨錯誤率下降" },
+      { "value": "99.4%", "label": "訂單準確率" },
+      { "value": "32%", "label": "樓面空間回收" },
+      { "value": "90日", "label": "首個可量化成果" }
+    ],
+    "servicesEyebrow": "我哋的交付",
+    "servicesHeadline": "四大 WMS 核心服務範疇",
+    "services": [
+      {
+        "number": "01",
+        "title": "WMS 評估與選型",
+        "points": [
+          "涵蓋人員、流程及技術的現況倉庫評估",
+          "基於運營實際而非 Vendor Checklist 的需求定義",
+          "採用加權評分模型的 Vendor 評估及選型",
+          "附 ROI 建模的商業論證開發"
+        ]
+      },
+      {
+        "number": "02",
+        "title": "WMS 落地實施及上線",
+        "points": [
+          "系統配置範圍及 Vendor 項目管治",
+          "Directed Put-away 規則及 Pick Wave Logic 設計",
+          "與 ERP、電商平台及 Carrier 系統的整合架構",
+          "分階段上線計劃以保障運營持續性"
+        ]
+      },
+      {
+        "number": "03",
+        "title": "庫存優化",
+        "points": [
+          "SKU Velocity 分析及 Slotting 重新設計",
+          "附 ATP Buffer 的全渠道庫存主層",
+          "採用需求加權模型的安全庫存重新計算",
+          "取代全盤盤點的循環盤點方案設計"
+        ]
+      },
+      {
+        "number": "04",
+        "title": "退貨及特殊作業",
+        "points": [
+          "設有明確流程站的專設退貨處理組別設計",
+          "各產品類別的分揀決策矩陣",
+          "B 級貨品清貨渠道設置",
+          "入庫收貨及品質控制流程重設計"
+        ]
+      }
+    ],
+    "processEyebrow": "我哋的流程",
+    "processHeadline": "WMS Engagement 點樣運作",
+    "steps": [
+      { "step": "1", "label": "30 日診斷", "desc": "實地評估倉庫運營、系統及團隊。交付物：優先改善路線圖。" },
+      { "step": "2", "label": "設計及選型", "desc": "需求定義、WMS Vendor 評估、整合架構規劃、商業論證建立。" },
+      { "step": "3", "label": "落地實施", "desc": "分階段上線，含上線保護措施。系統配置、測試、培訓及首波上線。" },
+      { "step": "4", "label": "穩定期", "desc": "上線後 30 日超密切跟進。對比 Baseline 量度 KPI、解決問題、團隊交接。" }
+    ],
+    "casesHeadline": "WMS 案例",
+    "casesViewAll": "查看全部 →",
+    "ctaHeadline": "由 30 日診斷開始",
+    "ctaSub": "我哋梳理你的倉庫運營、對標行業水準，在任何系統選型之前先找出最高價值的改善點。",
+    "ctaBtn": "預約診斷 →"
+  },
+  "transportation": {
+    "breadcrumbParent": "解決方案",
+    "eyebrow": "TMS 解決方案",
+    "headline": "運輸管理系統，削減 Freight 成本同縮短送達時間",
+    "sub": "我哋落地 TMS 系統及 Carrier Network 策略，讓你在每條 Route 及每個 Carrier 上都擁有可視性、控制力及成本節省。",
+    "ctaBook": "預約診斷 →",
+    "ctaCases": "查看 TMS 案例",
+    "stats": [
+      { "value": "22%", "label": "平均貨運成本下降" },
+      { "value": "15%", "label": "平均送達時間加快" },
+      { "value": "4.8/5", "label": "司機滿意度評分" },
+      { "value": "98%", "label": "送達 SLA 維持率" }
+    ],
+    "servicesEyebrow": "我哋的交付",
+    "servicesHeadline": "四大 TMS 核心服務範疇",
+    "services": [
+      {
+        "number": "01",
+        "title": "TMS 評估與選型",
+        "points": [
+          "現況 Carrier 及貨運成本分析",
+          "TMS 需求定義及平台評估",
+          "與 WMS、ERP 及 Carrier API 的整合架構",
+          "附貨運節省模型的商業論證開發"
+        ]
+      },
+      {
+        "number": "02",
+        "title": "TMS 落地實施及上線",
+        "points": [
+          "Carrier 接入及運費表配置",
+          "動態 Route 優化規則設置",
+          "最後一哩送達整合及追蹤設置",
+          "附 Carrier 表現 Baseline 的分階段上線"
+        ]
+      },
+      {
+        "number": "03",
+        "title": "Carrier Network 優化",
+        "points": [
+          "按 Lane 及服務類型的 Carrier 表現對標",
+          "多 Carrier 運費比較及談判支援",
+          "Carrier SLA Scorecard 設計及季度檢討機制",
+          "Peak Season 及突發情況下的備用 Carrier 策略"
+        ]
+      },
+      {
+        "number": "04",
+        "title": "Network 設計及整合",
+        "points": [
+          "跨倉庫位置的分銷 Network 建模",
+          "覆蓋範圍分析及重疊識別",
+          "貨運整合機會梳理",
+          "Network 合理化商業論證及遷移計劃"
+        ]
+      }
+    ],
+    "processEyebrow": "我哋的流程",
+    "processHeadline": "TMS Engagement 點樣運作",
+    "steps": [
+      { "step": "1", "label": "30 日診斷", "desc": "Carrier 審計、貨運成本分析及 Route 表現檢視。交付物：貨運節省機會地圖。" },
+      { "step": "2", "label": "設計及選型", "desc": "TMS 平台選定、Carrier 策略定義、整合架構規劃、商業論證建立。" },
+      { "step": "3", "label": "落地實施", "desc": "Carrier 接入、運費配置、Route 優化設置及按 Route 組別分階段上線。" },
+      { "step": "4", "label": "優化", "desc": "上線後 30 日檢視。量度 Carrier 表現、優化 Routing 規則、驗證節省成果。" }
+    ],
+    "casesHeadline": "TMS 案例",
+    "casesViewAll": "查看全部 →",
+    "ctaHeadline": "由 30 日診斷開始",
+    "ctaSub": "我哋審計你的 Carrier Network、分析貨運支出，在任何 TMS 選型之前先找出最高價值的改善點。",
+    "ctaBtn": "預約診斷 →"
+  },
+  "ecommerce": {
+    "breadcrumbParent": "行業",
+    "breadcrumb": "電子商務",
+    "headline": "大規模電商運營基礎設施",
+    "sub": "由單一倉 DTC 品牌到多渠道平台，我哋設計及落地 WMS 同 TMS 系統，確保 Fulfilment 準確及貨運成本受控。",
+    "ctaBook": "預約診斷 →",
+    "ctaCases": "查看案例",
+    "stats": [
+      { "value": "35%", "label": "平均揀貨錯誤率下降" },
+      { "value": "99.4%", "label": "訂單準確率" },
+      { "value": "40%", "label": "平均缺貨減少" },
+      { "value": "87%", "label": "退貨回收率" }
+    ],
+    "challengesEyebrow": "電商行業挑戰",
+    "challengesHeadline": "蠶食電商利潤的運營缺口",
+    "challengesPara": "電商物流結合零售速度的複雜性同個別訂單 Fulfilment 的精準要求。渠道、系統及實體運營之間的缺口會迅速累積 — 尤其在規模擴大時。",
+    "challengesLink": "查看電商案例 →",
+    "challenges": [
+      { "title": "缺乏 Peak Season 基礎設施", "desc": "Peak Season 量能衝擊達 4 倍，但 WMS 系統並非為此而設計 — 導致錯誤、超時及延遲出貨。" },
+      { "title": "多渠道庫存不同步", "desc": "庫存數量分散在 5 個不同系統，更新時間各異，造成超賣及過多安全庫存。" },
+      { "title": "退貨蠶食利潤", "desc": "退貨率逾 28%，但沒有明確的分揀流程 — 補貨緩慢、決策不一致，可售庫存被核銷。" },
+      { "title": "Carrier 成本及 SLA 缺乏透明度", "desc": "無法得知哪些 Carrier 表現欠佳，亦無談判籌碼 — Freight 支出增速超過收入增速。" }
+    ],
+    "solutionsEyebrow": "我哋的交付",
+    "solutionsHeadline": "專為電商運營打造的解決方案",
+    "solutions": [
+      { "icon": "▦", "title": "WMS 落地實施", "desc": "端到端 WMS 設計、選型及部署 — 包括 Directed Put-away、Pick Wave Logic 及人力生產力追蹤。", "href": "/services/warehouse" },
+      { "icon": "◈", "title": "全渠道庫存", "desc": "涵蓋所有銷售渠道的統一庫存主層，附渠道級 ATP Buffer 及每日自動對賬。", "href": "/services/warehouse" },
+      { "icon": "↩", "title": "退貨處理", "desc": "專設退貨處理組別設計，附分揀決策矩陣、48 小時處理 SLA 及 B 級貨品清貨渠道設置。", "href": "/services/warehouse" },
+      { "icon": "◎", "title": "Carrier 及 TMS 策略", "desc": "Carrier Network 審計、表現對標、TMS 落地，附最後一哩送達動態 Route 優化。", "href": "/services/transportation" }
+    ],
+    "learnMore": "了解更多 →",
+    "featuredCasesHeadline": "電商案例",
+    "featuredCasesViewAll": "查看所有案例 →",
+    "featuredCases": [
+      { "slug": "ecommerce-wms-peak-readiness", "metric": "35% 錯誤率下降", "headline": "WMS 落地令揀貨錯誤率於 Peak Season 前下降 35%" },
+      { "slug": "omnichannel-inventory-visibility", "metric": "40% 缺貨減少", "headline": "實時庫存可視化消除 5 個銷售渠道的缺貨問題" },
+      { "slug": "ecommerce-returns-processing", "metric": "87% 回收率", "headline": "退貨處理時間縮短一半，回收率達 87%" }
+    ],
+    "readCase": "閱讀案例 →",
+    "ctaHeadline": "準備好優化電商運營了嗎？",
+    "ctaSub": "由 30 日運營診斷開始。我哋識別 Fulfilment 及 Freight Network 的最高槓桿改善點。",
+    "ctaBtn": "預約診斷 →"
+  },
+  "about": {
+    "eyebrow": "關於 Meridian Advisory",
+    "headline": "我哋係去過倉庫的實操者。",
+    "sub": "我哋唔係遞上報告就離開的策略顧問。我哋係親身運營過倉庫、管理過 Carrier Network、自己落地過系統的運營實踐者。",
+    "teamHeadline": "團隊成員",
+    "ctaHeadline": "與我哋合作",
+    "ctaSub": "我哋每季只承接有限數量的 Engagement，確保每位客戶都獲得高級顧問的全力投入。",
+    "ctaBtn": "立即聯絡 →"
+  },
+  "contact": {
+    "eyebrow": "聯絡我們",
+    "headline": "開始對話。",
+    "sub": "無論你正面對特定的運營問題，還是想了解診斷的具體流程，我哋都樂意傾談。",
+    "formName": "全名",
+    "formEmail": "電郵地址",
+    "formCompany": "公司名稱",
+    "formMessage": "告訴我哋你的情況",
+    "formSubmit": "發送訊息 →",
+    "formSending": "發送中...",
+    "formSuccess": "訊息已發送。我哋會在一個工作天內回覆。",
+    "officesHeadline": "我哋的辦事處",
+    "responseTime": "回覆時間",
+    "responseDesc": "我哋會在一個工作天內回覆所有查詢。",
+    "engagements": "項目承接",
+    "engagementsDesc": "我哋每季只承接有限數量的新 Engagement。"
+  },
+  "advisory": {
+    "breadcrumbParent": "服務",
+    "eyebrow": "03 / Embedded Advisory · 長期 Retainer",
+    "headline": "幫你把複雜決策想清楚的 Thinking Partner。",
+    "sub": "以月費 Retainer 形式提供的資深策略顧問服務 — 讓你的管理層保持清醒、專注，並對塑造公司發展方向的重要決策負責。",
+    "whatIncludesTitle": "服務範疇",
+    "whoForTitle": "適合邊類客戶",
+    "whoForPara1": "年營業額 $10M–$100M 的創辦人及 CEO，希望擁有資深策略 Sounding Board，但又不想增加正式員工編制及相關複雜性。",
+    "whoForPara2": "通常由完成過 Implementation Engagement 的客戶選用，希望延續結構性策略思考的紀律。",
+    "whoForNote": "Retainer Engagement 每位合夥人限接 6 位客戶。我哋刻意保持小型 Client List — 確保你收到的顧問意見反映真正的用心，而非 Template 式思考。",
+    "includes": [
+      "每月 3 小時策略工作坊，由 Meridian 資深合夥人主持",
+      "優先事項審視及問責追蹤",
+      "決策壓力測試及情境分析",
+      "無限 Async 諮詢（72 小時回覆 SLA）",
+      "每季按既定目標進行績效檢討",
+      "每年策略更新工作坊"
+    ],
+    "ctaHeadline": "名額有限。",
+    "ctaSub": "歡迎聯絡了解目前是否有 Retainer 名額。",
+    "ctaBtn": "查詢名額 ↗"
+  },
+  "servicesIndex": {
+    "eyebrow": "解決方案 / Services",
+    "headline": "三種合作方式。",
+    "services": [
+      {
+        "number": "01",
+        "title": "診斷 Sprint",
+        "timeline": "30 日",
+        "ideal": "感覺某些地方出咗問題，但未能找出根本原因的企業。",
+        "deliverables": [
+          "涵蓋所有業務範疇的完整運營地圖",
+          "財務漏損分析及利潤率重建",
+          "按優先級排列的發現報告（30–50 頁）",
+          "附責任人分配的 90 日行動路線圖",
+          "向管理層匯報及問答環節"
+        ],
+        "href": "/services/warehouse"
+      },
+      {
+        "number": "02",
+        "title": "落地實施",
+        "timeline": "90–180 日",
+        "ideal": "已有明確診斷結論，需要實際協助落地執行改變的企業。",
+        "deliverables": [
+          "專責 Workstream 管理",
+          "流程重設計及 SOP 文件化",
+          "系統技術配置",
+          "每週管理層匯報",
+          "按 Baseline 追蹤可量化成果"
+        ],
+        "href": "/services/transportation"
+      },
+      {
+        "number": "03",
+        "title": "Embedded Advisory",
+        "timeline": "長期 Retainer",
+        "ideal": "希望擁有資深策略 Thinking Partner，但不想增加員工編制的管理團隊。",
+        "deliverables": [
+          "每月與資深合夥人進行策略工作坊",
+          "決策審視及壓力測試",
+          "優先事項監督",
+          "無限 Async 諮詢",
+          "每季績效檢討"
+        ],
+        "href": "/services/advisory"
+      }
+    ],
+    "whatYouReceive": "交付物",
+    "bestFor": "最適合：",
+    "learnMore": "了解更多 ↗",
+    "ctaHeadline": "唔確定邊種最適合你？",
+    "ctaSub": "通常 30 分鐘電話就夠了解清楚。",
+    "ctaBtn": "預約傾談 ↗"
+  },
+  "industriesIndex": {
+    "eyebrow": "行業 / Industries",
+    "headline": "專注行業深度，而非廣度。",
+    "sub": "我哋只專注三個行業。這種聚焦意味著我哋進入每個 Engagement 時，已熟知行業 Benchmark、常見失敗模式，以及真正能撥動數字的槓桿點。",
+    "coreChallenge": "核心挑戰：",
+    "whereFocus": "我哋的聚焦範疇",
+    "explore": "深入了解",
+    "industries": [
+      {
+        "number": "01",
+        "title": "電子商務",
+        "challenge": "Peak Season 量能管理、全渠道庫存同步，以及 DTC 品牌及 Marketplace 賣家的退貨處理。",
+        "stat": { "value": "35%", "label": "平均揀貨錯誤率下降" },
+        "focus": ["WMS 設計及落地實施", "全渠道庫存主層", "退貨處理組別", "Carrier 及 TMS 策略"],
+        "href": "/industries/ecommerce"
+      },
+      {
+        "number": "02",
+        "title": "批發及分銷",
+        "challenge": "物流成本上升及供應商基礎碎片化造成的利潤率壓縮。",
+        "stat": { "value": "22%", "label": "平均貨運成本下降" },
+        "focus": ["TMS 落地及 Carrier 策略", "Network 設計及整合", "供應商整合", "營運資金優化"],
+        "href": "/industries/wholesale"
+      },
+      {
+        "number": "03",
+        "title": "製造業",
+        "challenge": "產能未被充分利用，以及固定成本結構與實際產量嚴重脫節。",
+        "stat": { "value": "12–20%", "label": "毋需資本投入的吞吐量提升" },
+        "focus": ["倉庫佈局重新設計", "Slotting 優化", "入庫 / 出庫流程", "自製 vs. 外購分析"],
+        "href": "/industries/manufacturing"
+      }
+    ],
+    "ctaHeadline": "你的行業唔喺上面？",
+    "ctaSub": "我哋偶爾會為合適的客戶承接以上三個行業以外的項目。歡迎聯絡，我哋會直接告訴你是否合適。",
+    "ctaBtn": "開始對話 ↗"
+  },
+  "wholesale": {
+    "breadcrumbParent": "行業",
+    "eyebrow": "01 / Wholesale Distribution · 批發分銷",
+    "headline": "守住分銷生意的利潤率。",
+    "sub": "批發分銷表面上係物流業務，本質上係利潤率管理的生意。我哋在這個行業的工作聚焦於保護並擴大分銷利潤率的結構性槓桿點。",
+    "challengesHeadline": "我哋最常見的四大挑戰",
+    "challenges": [
+      {
+        "title": "供應商碎片化",
+        "body": "供應商太多，議價能力太弱。SKU 數量愈增，每個供應商的採購集中度愈低，行政管理成本亦不成比例地上升。"
+      },
+      {
+        "title": "物流成本持續蠶食",
+        "body": "Freight、燃油及人工成本上升，持續侵蝕原本已薄的分銷利潤率。欠缺系統性分析，Route 低效問題會隨時間不斷累積。"
+      },
+      {
+        "title": "營運資金被困",
+        "body": "滯銷庫存佔用可用於增長的資金。大多數分銷商並不清楚，當把持貨成本計算在內後，哪些 SKU 實際上係蝕本的。"
+      },
+      {
+        "title": "客戶集中風險",
+        "body": "收入往往集中在少數大客身上。失去一個大客戶，可能觸發結構性危機，而非可以快速修復的缺口。"
+      }
+    ],
+    "resultsHeadline": "典型 Engagement 的交付成果",
+    "resultsPara1": "我哋合作過的批發分銷商，大多數係靠增加銷量來增長，但從未細究這些銷量是否真的有利可圖。診斷階段通常會在現有業務中發現 2–4 個百分點的隱藏利潤空間。",
+    "resultsPara2": "落地實施工作的重點，就係把這些利潤鎖住 — 透過供應商整合、Route 優化、SKU 紀律，以及營運資金管理。",
+    "metrics": [
+      { "metric": "18–24%", "desc": "EBIT 利潤率提升（各 Engagement 中位數）" },
+      { "metric": "30–40%", "desc": "活躍供應商數量減少" },
+      { "metric": "15–25%", "desc": "庫存周轉率改善" },
+      { "metric": "2–3×", "desc": "12 個月內對 Engagement 費用的回報倍數" }
+    ],
+    "ctaHeadline": "由診斷 Sprint 開始。",
+    "ctaSub": "30 日。清晰掌握你在哪裡流失利潤。",
+    "ctaBtn": "預約診斷 ↗"
+  },
+  "manufacturing": {
+    "breadcrumbParent": "行業",
+    "eyebrow": "02 / Manufacturing · 製造業",
+    "headline": "用現有資產，做出更高吞吐量。",
+    "sub": "製造業的改善並非每次都需要資本投入。最持久的成果，往往來自將固定成本結構、排程紀律及供應商關係，與實際產量現實重新對齊。",
+    "challengesHeadline": "我哋最常見的四大挑戰",
+    "challenges": [
+      {
+        "title": "產能與固定成本嚴重脫節",
+        "body": "為 Peak 產量而建立的固定成本結構，在產量收縮時會變成拖累。大多數製造商對每條產品線的真正 Breakeven 並無清晰認識。"
+      },
+      {
+        "title": "生產排程低效",
+        "body": "排程欠佳造成不必要的換線、過高的在製品 (WIP) 積壓，以及錯過交貨期 — 而這些損失在損益表上並無獨立一行顯示。"
+      },
+      {
+        "title": "供應鏈過度集中",
+        "body": "單一供應商依賴造成脆弱性。許多製造商為追求短期成本節省而過度縮減供應商數量，犧牲了供應鏈韌性。"
+      },
+      {
+        "title": "自製 vs. 外購決策老化",
+        "body": "在某個成本結構下做出的決策，往往在經濟環境早已改變後仍被沿用。定期進行自製 vs. 外購檢討係罕見但高價值的動作。"
+      }
+    ],
+    "resultsHeadline": "典型 Engagement 的交付成果",
+    "resultsPara1": "我哋的製造業 Engagement 從一份詳細成本模型開始 — 不係管理賬版本，而係真正按產品線、正確分攤固定成本的視角。這個分析通常會發現 3–5 條佔用過多產能但表現欠佳的產品線。",
+    "resultsPara2": "落地實施工作的重點係排程紀律、供應商整合，以及在有充分理由時，對產品組合本身進行精簡。",
+    "metrics": [
+      { "metric": "12–20%", "desc": "毋需資本投入的吞吐量提升" },
+      { "metric": "15–25%", "desc": "整合後固定成本下降" },
+      { "metric": "20–35%", "desc": "透過排程優化縮短換線時間" },
+      { "metric": "8–14%", "desc": "EBIT 利潤率提升（各 Engagement 中位數）" }
+    ],
+    "ctaHeadline": "由診斷 Sprint 開始。",
+    "ctaSub": "30 日。按產品線清晰掌握你在哪裡留了利潤在地板上。",
+    "ctaBtn": "預約診斷 ↗"
+  },
+  "insights": {
+    "eyebrow": "洞察 / Insights",
+    "headline": "值得花時間閱讀的思考。",
+    "items": [
+      {
+        "slug": "why-operational-problems-are-structural",
+        "tag": "運營",
+        "title": "點解運營問題通常係偽裝成日常問題的結構性缺陷",
+        "excerpt": "當管理層形容自己的業務「好忙但係唔郁得」，幾乎可以肯定係在描述一個組織設計上的結構性失敗 — 而非努力不足的問題。",
+        "date": "2025 年 4 月",
+        "readTime": "6 分鐘閱讀"
+      },
+      {
+        "slug": "the-diagnostic-before-the-prescription",
+        "tag": "策略",
+        "title": "先診斷，後處方：點解我哋從不先提方案",
+        "excerpt": "大多數顧問帶著答案來。真正誠實的顧問帶著問題來。先把「點解」搞清楚，會從根本上改變建議的質量。",
+        "date": "2025 年 3 月",
+        "readTime": "5 分鐘閱讀"
+      },
+      {
+        "slug": "margin-compression-wholesale",
+        "tag": "批發",
+        "title": "批發分銷的利潤率壓縮：真正能撥動數字的三個槓桿",
+        "excerpt": "面對利潤率壓力的批發分銷商，通常第一反應係睇採購。但最大的機會幾乎從不在採購環節。",
+        "date": "2025 年 2 月",
+        "readTime": "8 分鐘閱讀"
+      },
+      {
+        "slug": "sku-rationalisation",
+        "tag": "零售",
+        "title": "賣少啲 SKU 的反直覺論據",
+        "excerpt": "產品組合擴張係零售業最常見的增長策略。但數據顯示，這往往製造更多複雜性多過收入 — 同時在過程中損耗利潤率。",
+        "date": "2025 年 1 月",
+        "readTime": "7 分鐘閱讀"
+      },
+      {
+        "slug": "embedded-vs-advisory",
+        "tag": "顧問",
+        "title": "Embedded 執行 vs. Advisory：邊種模式真正改變行為",
+        "excerpt": "顧問行業有一個交付問題。只有建議、沒有落地執行責任的 Engagement，只能產出 Slide Deck，唔會產出成果。",
+        "date": "2024 年 12 月",
+        "readTime": "5 分鐘閱讀"
+      },
+      {
+        "slug": "manufacturing-throughput-without-capex",
+        "tag": "製造業",
+        "title": "毋需資本投入，提升製造業吞吐量",
+        "excerpt": "用新設備解決產能問題的直覺係可以理解的。但這往往係不必要的。排程同流程的槓桿幾乎總是更大。",
+        "date": "2024 年 11 月",
+        "readTime": "9 分鐘閱讀"
+      }
+    ]
+  },
+  "philosophy": {
+    "eyebrow": "理念 / Philosophy",
+    "headline": "塑造我哋工作方式的信念。",
+    "openingLeft": "顧問行業有口碑問題。太多 Engagement 最終只是產出一份被束之高閣的報告。我哋創立 Meridian，係因為我哋相信有更好的模式。",
+    "openingRight1": "更好的模式，始於一套不同的信念。關於係咩導致運營問題。關於客戶值得聽到咩。關於「完成」究竟係咩意思。",
+    "openingRight2": "以下係我哋在每個 Engagement 遇到複雜情況時，都會回歸的四個信念。",
+    "principles": [
+      {
+        "number": "01",
+        "title": "問題有其結構性根源",
+        "body": "每一個運營失敗 — 預測偏差、利潤漏損、流程斷裂 — 都係症狀。根源在於組織設計本身。我哋唔修復症狀。我哋重新設計不斷製造這些症狀的系統。"
+      },
+      {
+        "number": "02",
+        "title": "嚴謹勝過安慰",
+        "body": "大多數顧問告訴客戶他們想聽的話。我哋告訴客戶數據顯示的話。這意味著部分 Engagement 從令人不舒服的發現開始。我哋相信，在診斷階段的不舒服，遠比延誤治療的舒服更便宜。"
+      },
+      {
+        "number": "03",
+        "title": "交付時同步完成交接",
+        "body": "我哋衡量成功的標準，唔係 Slide Deck 的質量，而係組織在我哋離開後能否維持改善。每個 Engagement 結束時，都有文件化的流程、受過培訓的團隊，以及可量化的 Baseline — 而非對我哋的依賴。"
+      },
+      {
+        "number": "04",
+        "title": "深度勝過廣度",
+        "body": "我哋只在三個行業工作。我哋可以做更多，但我哋選擇不。因為深度的行業專長 — 熟知你所在行業的成本結構、合規環境及買家行為 — 能產出比通才模式匹配更好的成果。"
+      }
+    ],
+    "ctaSub": "好奇我哋的方式係否適合你的情況？",
+    "ctaBtn": "了解我哋的方法 ↗"
+  },
+  "approach": {
+    "eyebrow": "方法 / Approach",
+    "headline": "一個以交付為目的的結構化流程，而非純粹的顧問建議。",
+    "sub": "三個階段。固定時間線。每個階段均有可量化成果。沒有以「轉型計劃」為名的開放式 Retainer。",
+    "outcomeLabel": "成果",
+    "whatWeDoLabel": "我哋做咩",
+    "phases": [
+      {
+        "phase": "第一階段",
+        "title": "診斷",
+        "duration": "第 1–4 週",
+        "steps": [
+          "跨所有職能範疇的持份者訪談",
+          "財務及運營數據審視",
+          "流程地圖繪製及樽頸識別",
+          "競爭背景分析及 Benchmark 對標",
+          "按優先級排列的發現報告及路線圖交付"
+        ],
+        "outcome": "一份 30–50 頁的發現報告，以及一份按優先級排列的行動路線圖，以結構化匯報形式向管理層呈現。"
+      },
+      {
+        "phase": "第二階段",
+        "title": "落地實施",
+        "duration": "第 2–6 個月",
+        "steps": [
+          "啟動各 Workstream，設定內部負責人",
+          "每週進度跟進及 Milestone 追蹤",
+          "流程重設計及 SOP 文件化",
+          "系統技術配置及整合",
+          "附財務影響追蹤的進度匯報"
+        ],
+        "outcome": "目標指標的可量化改善，所有改變均嵌入你的日常運營節奏 — 不依賴我哋繼續在場。"
+      },
+      {
+        "phase": "第三階段",
+        "title": "交接",
+        "duration": "第 20–24 週",
+        "steps": [
+          "所有流程改變的完整文件化",
+          "內部團隊培訓及知識轉移",
+          "Baseline vs. 成果績效對比回顧",
+          "離場後 30 日支援期",
+          "可選的持續顧問 Retainer 結構"
+        ],
+        "outcome": "你的團隊自主運行改善後的系統。我哋留下一種能力，而非一種依賴。"
+      }
+    ],
+    "principles": [
+      { "label": "固定收費 Engagement", "desc": "沒有額外賬單。範圍、時間線及費用均在開始前確定。" },
+      { "label": "先診斷，後處方", "desc": "我哋從不在完成結構性評估之前就提出方案。" },
+      { "label": "不外判交付", "desc": "你見到的團隊就係做事的團隊。不會移交給初級顧問。" }
+    ],
+    "ctaHeadline": "由診斷開始。",
+    "ctaSub": "30 日。清晰掌握你在哪裡流失價值。",
+    "ctaBtn": "預約診斷 ↗"
+  }
+}

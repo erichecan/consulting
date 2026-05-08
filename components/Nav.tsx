@@ -2,39 +2,22 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useTranslations, useLocale } from "next-intl";
 import { Menu, X, ChevronDown } from "lucide-react";
-
-const navItems = [
-  {
-    href: "/industries",
-    label: "Industries",
-    children: [
-      { href: "/industries/ecommerce", label: "E-Commerce", desc: "Fulfillment, returns, omnichannel" },
-      { href: "/industries/wholesale", label: "Wholesale & Distribution", desc: "Multi-warehouse, B2B logistics" },
-      { href: "/industries/manufacturing", label: "Manufacturing", desc: "MES integration, materials flow" },
-    ],
-  },
-  {
-    href: "/services",
-    label: "Solutions",
-    children: [
-      { href: "/services/warehouse", label: "Warehouse Management", desc: "WMS strategy, implementation & optimisation" },
-      { href: "/services/transportation", label: "Transportation Management", desc: "TMS, carrier management & route optimisation" },
-      { href: "/services/advisory", label: "Strategic Advisory", desc: "Retainer-based operational counsel" },
-    ],
-  },
-  { href: "/cases", label: "Cases" },
-  { href: "/insights", label: "Insights" },
-  { href: "/about", label: "About" },
-];
 
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+  const locale = useLocale();
+  const t = useTranslations("nav");
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Strip locale prefix for active state matching
+  const pathWithoutLocale = pathname.replace(/^\/(en|zh)/, "") || "/";
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -57,7 +40,41 @@ export default function Nav() {
   };
 
   const isActive = (href: string) =>
-    pathname === href || pathname.startsWith(href + "/");
+    pathWithoutLocale === href || pathWithoutLocale.startsWith(href + "/");
+
+  // locale-prefixed href helper
+  const l = (href: string) => `/${locale}${href}`;
+
+  const toggleLocale = () => {
+    const newLocale = locale === "en" ? "zh" : "en";
+    // Replace current locale prefix with new one
+    const newPath = pathname.replace(/^\/(en|zh)/, `/${newLocale}`);
+    router.push(newPath);
+  };
+
+  const navItems = [
+    {
+      href: "/industries",
+      label: t("industries"),
+      children: [
+        { href: "/industries/ecommerce", label: t("industriesItems.ecommerce"), desc: t("industriesItems.ecommerceDesc") },
+        { href: "/industries/wholesale", label: t("industriesItems.wholesale"), desc: t("industriesItems.wholesaleDesc") },
+        { href: "/industries/manufacturing", label: t("industriesItems.manufacturing"), desc: t("industriesItems.manufacturingDesc") },
+      ],
+    },
+    {
+      href: "/services",
+      label: t("solutions"),
+      children: [
+        { href: "/services/warehouse", label: t("solutionsItems.warehouse"), desc: t("solutionsItems.warehouseDesc") },
+        { href: "/services/transportation", label: t("solutionsItems.transportation"), desc: t("solutionsItems.transportationDesc") },
+        { href: "/services/advisory", label: t("solutionsItems.advisory"), desc: t("solutionsItems.advisoryDesc") },
+      ],
+    },
+    { href: "/cases", label: t("cases") },
+    { href: "/insights", label: t("insights") },
+    { href: "/about", label: t("about") },
+  ];
 
   return (
     <header
@@ -86,7 +103,7 @@ export default function Nav() {
         }}
       >
         {/* Logo */}
-        <Link href="/" style={{ textDecoration: "none", flexShrink: 0 }}>
+        <Link href={l("/")} style={{ textDecoration: "none", flexShrink: 0 }}>
           <span
             style={{
               fontFamily: "var(--font-heading-en)",
@@ -117,7 +134,7 @@ export default function Nav() {
                 onMouseLeave={() => item.children && closeDropdown()}
               >
                 <Link
-                  href={item.href}
+                  href={l(item.href)}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -182,11 +199,11 @@ export default function Nav() {
                     onMouseLeave={() => closeDropdown()}
                   >
                     {item.children.map((child) => {
-                      const childActive = pathname === child.href || pathname.startsWith(child.href + "/");
+                      const childActive = pathWithoutLocale === child.href || pathWithoutLocale.startsWith(child.href + "/");
                       return (
                         <Link
                           key={child.href}
-                          href={child.href}
+                          href={l(child.href)}
                           style={{
                             display: "block",
                             padding: "10px 14px",
@@ -218,10 +235,31 @@ export default function Nav() {
           })}
         </nav>
 
-        {/* CTA + mobile burger */}
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", flexShrink: 0 }}>
+        {/* CTA + locale toggle + mobile burger */}
+        <div style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
+          {/* Language toggle */}
+          <button
+            onClick={toggleLocale}
+            className="nav-desktop"
+            style={{
+              fontSize: "12px",
+              fontWeight: 500,
+              color: "var(--color-slate)",
+              backgroundColor: "transparent",
+              border: "1px solid var(--color-border)",
+              padding: "5px 12px",
+              borderRadius: "4px",
+              cursor: "pointer",
+              letterSpacing: "0.03em",
+              transition: "border-color 0.2s, color 0.2s",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {locale === "en" ? "中文" : "EN"}
+          </button>
+
           <Link
-            href="/contact"
+            href={l("/contact")}
             className="nav-desktop"
             style={{
               fontSize: "13px",
@@ -236,7 +274,7 @@ export default function Nav() {
               whiteSpace: "nowrap",
             }}
           >
-            Contact Us ↗
+            {t("contact")} ↗
           </Link>
 
           <button
@@ -272,7 +310,7 @@ export default function Nav() {
           {navItems.map((item) => (
             <div key={item.href}>
               <Link
-                href={item.href}
+                href={l(item.href)}
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
@@ -293,7 +331,7 @@ export default function Nav() {
                   {item.children.map((child) => (
                     <Link
                       key={child.href}
-                      href={child.href}
+                      href={l(child.href)}
                       style={{
                         display: "block",
                         padding: "10px 0",
@@ -310,11 +348,32 @@ export default function Nav() {
               )}
             </div>
           ))}
-          <Link
-            href="/contact"
+
+          {/* Mobile language toggle */}
+          <button
+            onClick={toggleLocale}
             style={{
               display: "block",
-              marginTop: "24px",
+              width: "100%",
+              marginTop: "16px",
+              padding: "12px",
+              backgroundColor: "transparent",
+              border: "1px solid var(--color-border)",
+              borderRadius: "4px",
+              color: "var(--color-slate)",
+              fontSize: "14px",
+              fontWeight: 500,
+              cursor: "pointer",
+            }}
+          >
+            {locale === "en" ? "切換至中文" : "Switch to English"}
+          </button>
+
+          <Link
+            href={l("/contact")}
+            style={{
+              display: "block",
+              marginTop: "12px",
               textAlign: "center",
               padding: "14px",
               backgroundColor: "var(--color-forest)",
@@ -325,7 +384,7 @@ export default function Nav() {
               fontSize: "14px",
             }}
           >
-            Contact Us ↗
+            {t("contact")} ↗
           </Link>
         </div>
       )}

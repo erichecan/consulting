@@ -1,33 +1,40 @@
-import Link from "next/link";
+"use client";
 
-const cols = [
-  {
-    heading: "Services",
-    links: [
-      { href: "/services/diagnostic", label: "Diagnostic Sprint" },
-      { href: "/services/implementation", label: "Implementation" },
-      { href: "/services/advisory", label: "Embedded Advisory" },
-    ],
-  },
-  {
-    heading: "Company",
-    links: [
-      { href: "/philosophy", label: "Philosophy" },
-      { href: "/approach", label: "Approach" },
-      { href: "/about", label: "About" },
-    ],
-  },
-  {
-    heading: "Explore",
-    links: [
-      { href: "/industries", label: "Industries" },
-      { href: "/insights", label: "Insights" },
-      { href: "/contact", label: "Contact" },
-    ],
-  },
-];
+import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+  const locale = useLocale();
+  const l = (href: string) => `/${locale}${href}`;
+
+  const cols = [
+    {
+      heading: t("services"),
+      links: [
+        { href: l("/services/warehouse"), label: t("diagnostic") },
+        { href: l("/services/transportation"), label: t("implementation") },
+        { href: l("/services/advisory"), label: t("advisory") },
+      ],
+    },
+    {
+      heading: t("company"),
+      links: [
+        { href: l("/philosophy"), label: t("philosophy") },
+        { href: l("/approach"), label: t("approach") },
+        { href: l("/about"), label: t("about") },
+      ],
+    },
+    {
+      heading: t("explore"),
+      links: [
+        { href: l("/industries"), label: t("industries") },
+        { href: l("/insights"), label: t("insights") },
+        { href: l("/contact"), label: t("contact") },
+      ],
+    },
+  ];
+
   return (
     <footer
       style={{
@@ -57,7 +64,7 @@ export default function Footer() {
         >
           {/* Brand */}
           <div>
-            <Link href="/" style={{ textDecoration: "none" }}>
+            <Link href={l("/")} style={{ textDecoration: "none" }}>
               <span
                 style={{
                   fontFamily: "var(--font-heading-en)",
@@ -73,22 +80,19 @@ export default function Footer() {
             <p
               style={{
                 marginTop: "16px",
-                fontFamily: "var(--font-body-en)",
                 fontSize: "14px",
                 lineHeight: "1.7",
                 color: "rgba(255,255,255,0.65)",
                 maxWidth: "280px",
               }}
             >
-              We help mid-market businesses diagnose structural inefficiencies
-              and implement lasting operational change.
+              {t("description")}
             </p>
             <Link
-              href="/contact"
+              href={l("/contact")}
               style={{
                 display: "inline-block",
                 marginTop: "24px",
-                fontFamily: "var(--font-body-en)",
                 fontSize: "13px",
                 fontWeight: 500,
                 color: "var(--color-forest)",
@@ -99,7 +103,7 @@ export default function Footer() {
                 letterSpacing: "0.02em",
               }}
             >
-              Book a Diagnostic ↗
+              {t("contact")} ↗
             </Link>
           </div>
 
@@ -108,7 +112,6 @@ export default function Footer() {
             <div key={col.heading}>
               <p
                 style={{
-                  fontFamily: "var(--font-body-en)",
                   fontSize: "11px",
                   fontWeight: 500,
                   letterSpacing: "0.1em",
@@ -120,18 +123,17 @@ export default function Footer() {
                 {col.heading}
               </p>
               <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px" }}>
-                {col.links.map((l) => (
-                  <li key={l.href}>
+                {col.links.map((link) => (
+                  <li key={link.href}>
                     <Link
-                      href={l.href}
+                      href={link.href}
                       style={{
-                        fontFamily: "var(--font-body-en)",
                         fontSize: "14px",
                         color: "rgba(255,255,255,0.75)",
                         textDecoration: "none",
                       }}
                     >
-                      {l.label}
+                      {link.label}
                     </Link>
                   </li>
                 ))}
@@ -151,30 +153,16 @@ export default function Footer() {
             gap: "12px",
           }}
         >
-          <p
-            style={{
-              fontFamily: "var(--font-body-en)",
-              fontSize: "12px",
-              color: "rgba(255,255,255,0.4)",
-            }}
-          >
-            © 2025 Meridian Advisory. All rights reserved.
+          <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)" }}>
+            {t("copyright")}
           </p>
           <div style={{ display: "flex", gap: "24px" }}>
-            {["Privacy", "Terms"].map((t) => (
-              <Link
-                key={t}
-                href={`/${t.toLowerCase()}`}
-                style={{
-                  fontFamily: "var(--font-body-en)",
-                  fontSize: "12px",
-                  color: "rgba(255,255,255,0.4)",
-                  textDecoration: "none",
-                }}
-              >
-                {t}
-              </Link>
-            ))}
+            <Link href={l("/privacy")} style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>
+              {t("privacy")}
+            </Link>
+            <Link href={l("/terms")} style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>
+              {t("terms")}
+            </Link>
           </div>
         </div>
       </div>

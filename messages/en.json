@@ -1,0 +1,737 @@
+{
+  "nav": {
+    "industries": "Industries",
+    "solutions": "Solutions",
+    "cases": "Cases",
+    "insights": "Insights",
+    "about": "About",
+    "contact": "Contact Us",
+    "industriesItems": {
+      "ecommerce": "E-Commerce",
+      "ecommerceDesc": "Fulfilment, inventory & returns",
+      "wholesale": "Wholesale & Distribution",
+      "wholesaleDesc": "Network design & freight",
+      "manufacturing": "Manufacturing",
+      "manufacturingDesc": "Warehouse & supply chain"
+    },
+    "solutionsItems": {
+      "warehouse": "Warehouse Management",
+      "warehouseDesc": "WMS strategy & implementation",
+      "transportation": "Transportation Management",
+      "transportationDesc": "TMS & freight optimisation",
+      "advisory": "Advisory & Coaching",
+      "advisoryDesc": "Fractional COO & team upskilling"
+    }
+  },
+  "footer": {
+    "tagline": "Honest counsel. Measurable outcomes.",
+    "description": "We partner with mid-market businesses to diagnose structural inefficiencies and implement lasting operational change.",
+    "services": "Services",
+    "company": "Company",
+    "explore": "Explore",
+    "diagnostic": "30-Day Diagnostic",
+    "implementation": "Implementation",
+    "advisory": "Advisory",
+    "philosophy": "Philosophy",
+    "approach": "Our Approach",
+    "about": "About Us",
+    "industries": "Industries",
+    "insights": "Insights",
+    "contact": "Contact",
+    "copyright": "© 2025 Meridian Advisory. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "home": {
+    "heroEyebrow": "Operational Excellence",
+    "heroHeadline": "We fix the operations that limit your growth.",
+    "heroSub": "Meridian Advisory partners with mid-market businesses to diagnose structural inefficiencies and implement lasting change — in warehouse management, transportation, and supply chain.",
+    "heroCta": "Book a Diagnostic",
+    "heroSecondary": "See Our Work",
+    "statsLabel1": "Engagements",
+    "statsLabel2": "Avg freight savings",
+    "statsLabel3": "Order accuracy achieved",
+    "statsLabel4": "First measurable outcome",
+    "whatWeDoEyebrow": "What We Do",
+    "whatWeDoHeadline": "Operational consulting with a measurable first outcome in 90 days.",
+    "whatWeDoPara": "We don't write strategy decks. We embed in your operation, map the gaps, and implement the fixes — in the warehouse, across the carrier network, and through your inventory systems.",
+    "services": {
+      "warehouse": {
+        "title": "Warehouse Management",
+        "desc": "WMS design, selection, and implementation. From directed put-away to pick wave logic — built for your operation."
+      },
+      "transportation": {
+        "title": "Transportation Management",
+        "desc": "TMS implementation and carrier network optimisation. Unified visibility, dynamic routing, freight cost reduction."
+      },
+      "advisory": {
+        "title": "Advisory & Coaching",
+        "desc": "Fractional COO support and operations leadership coaching for growing teams navigating rapid scale."
+      }
+    },
+    "industriesEyebrow": "Industries We Serve",
+    "industriesHeadline": "Built for three operational environments.",
+    "industries": {
+      "ecommerce": {
+        "title": "E-Commerce",
+        "desc": "Peak volume management, omnichannel inventory, and returns processing for DTC and marketplace brands."
+      },
+      "wholesale": {
+        "title": "Wholesale & Distribution",
+        "desc": "Network rationalisation, carrier management, and TMS rollout for regional and national distributors."
+      },
+      "manufacturing": {
+        "title": "Manufacturing",
+        "desc": "Warehouse layout redesign, slotting optimisation, and inbound/outbound flow for industrial operators."
+      }
+    },
+    "casesEyebrow": "Client Results",
+    "casesHeadline": "Measurable outcomes. Verified results.",
+    "casesCta": "View All Cases",
+    "ctaHeadline": "Ready to fix your operations?",
+    "ctaSub": "Start with a 30-day diagnostic. We map your operation and identify the highest-value changes — before any system selection or implementation begins.",
+    "ctaBtn": "Book a Diagnostic"
+  },
+  "cases": {
+    "eyebrow": "Client Results",
+    "headline": "Real outcomes.\nMeasurable results.",
+    "sub": "Every engagement is built around a specific operational problem. Here is what our clients achieved.",
+    "stats": {
+      "engagements": "Engagements",
+      "freightSavings": "Avg freight savings",
+      "orderAccuracy": "Order accuracy achieved",
+      "firstOutcome": "First measurable outcome"
+    },
+    "readMore": "Read case study →",
+    "ctaHeadline": "Ready to see similar results?",
+    "ctaSub": "Start with a 30-day diagnostic. We map your operation and identify the highest-value changes.",
+    "ctaBtn": "Book a Diagnostic →",
+    "items": {
+      "ecommerce-wms-peak-readiness": {
+        "headline": "WMS Implementation Cuts Picking Errors 35% Before Peak Season",
+        "summary": "A fast-growing online retailer with three fulfilment centres needed to handle a 4× volume surge during peak. We designed and deployed a WMS solution that delivered operational control in 90 days.",
+        "metrics": [
+          { "value": "35%", "label": "Reduction in picking errors" },
+          { "value": "28%", "label": "Throughput increase" },
+          { "value": "99.4%", "label": "Order accuracy rate" }
+        ]
+      },
+      "wholesale-tms-freight-savings": {
+        "headline": "TMS Rollout Reduces Freight Spend by 22% Across 200+ Daily Routes",
+        "summary": "A regional distributor running 200+ daily routes had no visibility into carrier performance or route costs. Our TMS implementation unified their carrier base and introduced dynamic route optimisation.",
+        "metrics": [
+          { "value": "22%", "label": "Freight cost reduction" },
+          { "value": "15%", "label": "Faster average delivery" },
+          { "value": "4.8/5", "label": "Driver satisfaction score" }
+        ]
+      },
+      "omnichannel-inventory-visibility": {
+        "headline": "Real-Time Inventory Visibility Eliminates Stockouts Across 5 Sales Channels",
+        "summary": "A consumer brand selling across its own website, two marketplaces, and two retail partners had chronic overselling and stockout problems. A unified inventory layer solved both in one engagement.",
+        "metrics": [
+          { "value": "40%", "label": "Reduction in stockout events" },
+          { "value": "30%", "label": "Lower overstock holding cost" },
+          { "value": "2.1×", "label": "Inventory turn improvement" }
+        ]
+      },
+      "manufacturing-warehouse-optimisation": {
+        "headline": "Warehouse Redesign Recovers 32% Floor Space Without Capital Expenditure",
+        "summary": "A mid-size manufacturer was paying for off-site storage due to perceived space constraints. A systematic warehouse analysis revealed significant recoverable capacity through slotting and flow redesign.",
+        "metrics": [
+          { "value": "32%", "label": "Floor space recovered" },
+          { "value": "0", "label": "Capital expenditure required" },
+          { "value": "18%", "label": "Pick path distance reduction" }
+        ]
+      },
+      "wholesale-distribution-network": {
+        "headline": "Distribution Network Consolidation Delivers $1.4M Annual Savings",
+        "summary": "Operating six regional warehouses with overlapping coverage zones, a building materials wholesaler was duplicating inventory and freight costs. A network rationalisation study identified a 3-warehouse model with better reach.",
+        "metrics": [
+          { "value": "$1.4M", "label": "Annual cost savings" },
+          { "value": "3", "label": "Warehouses (down from 6)" },
+          { "value": "98%", "label": "Delivery SLA maintained" }
+        ]
+      },
+      "ecommerce-returns-processing": {
+        "headline": "Returns Processing Time Halved, Recovery Rate Reaches 87%",
+        "summary": "A fashion platform with a 28% return rate was losing margin on every return due to slow grading and restocking. A dedicated returns cell with defined grading logic transformed returns from a cost centre into a recovery engine.",
+        "metrics": [
+          { "value": "50%", "label": "Faster returns processing" },
+          { "value": "87%", "label": "Sellable recovery rate" },
+          { "value": "28%→18%", "label": "Effective return cost rate" }
+        ]
+      }
+    }
+  },
+  "caseDetail": {
+    "backToAll": "All Case Studies",
+    "industry": "Industry",
+    "solution": "Solution",
+    "client": "Client",
+    "challenge": "The Challenge",
+    "solution_section": "The Solution",
+    "results": "Results",
+    "keyOutcomes": "Key Outcomes",
+    "readyHeadline": "Ready to see similar results?",
+    "readySub": "Start with a 30-day diagnostic. We map your operation and identify the highest-value changes before any system selection begins.",
+    "readyCta": "Book a Diagnostic →",
+    "relatedCases": "Related Case Studies",
+    "tags": {
+      "WMS": "WMS",
+      "TMS": "TMS",
+      "E-Commerce": "E-Commerce",
+      "Peak Operations": "Peak Operations",
+      "Wholesale": "Wholesale",
+      "Route Optimisation": "Route Optimisation",
+      "Omnichannel": "Omnichannel",
+      "Inventory": "Inventory",
+      "Warehouse Optimisation": "Warehouse Optimisation",
+      "Manufacturing": "Manufacturing",
+      "Layout": "Layout",
+      "Network Design": "Network Design",
+      "Cost Reduction": "Cost Reduction",
+      "Returns Management": "Returns Management",
+      "Operations": "Operations"
+    }
+  },
+  "warehouse": {
+    "breadcrumbParent": "Solutions",
+    "eyebrow": "WMS Solutions",
+    "headline": "Warehouse management that delivers measurable results in 90 days",
+    "sub": "We design, select, and implement warehouse management systems matched to your operation — not the vendor's default configuration. Every engagement is anchored to a measurable first outcome within 90 days.",
+    "ctaBook": "Book a Diagnostic →",
+    "ctaCases": "View WMS Case Studies",
+    "stats": [
+      { "value": "35%", "label": "Avg picking error reduction" },
+      { "value": "99.4%", "label": "Order accuracy achieved" },
+      { "value": "32%", "label": "Floor space recovered" },
+      { "value": "90d", "label": "First measurable outcome" }
+    ],
+    "servicesEyebrow": "What We Deliver",
+    "servicesHeadline": "Four core WMS service areas",
+    "services": [
+      {
+        "number": "01",
+        "title": "WMS Assessment & Selection",
+        "points": [
+          "Current-state warehouse assessment across people, process, and technology",
+          "Requirements definition based on operational realities, not vendor checklists",
+          "Vendor evaluation and selection using a weighted scoring model",
+          "Business case development with ROI modelling"
+        ]
+      },
+      {
+        "number": "02",
+        "title": "WMS Implementation & Go-Live",
+        "points": [
+          "Configuration scoping and vendor project governance",
+          "Directed put-away rules and pick wave logic design",
+          "Integration architecture with ERP, e-commerce platforms, and carrier systems",
+          "Staged go-live planning to protect operational continuity"
+        ]
+      },
+      {
+        "number": "03",
+        "title": "Inventory Optimisation",
+        "points": [
+          "SKU velocity analysis and slotting redesign",
+          "Omnichannel inventory master layer with ATP buffers",
+          "Safety stock recalculation using demand-weighted models",
+          "Cycle count programme design replacing full physical counts"
+        ]
+      },
+      {
+        "number": "04",
+        "title": "Returns & Special Operations",
+        "points": [
+          "Dedicated returns processing cell design with defined flow stations",
+          "Grading decision matrices per product category",
+          "Grade B liquidation channel setup",
+          "Inbound receiving and quality control process redesign"
+        ]
+      }
+    ],
+    "processEyebrow": "Our Process",
+    "processHeadline": "How a WMS engagement works",
+    "steps": [
+      { "step": "1", "label": "30-Day Diagnostic", "desc": "On-site assessment of your warehouse operations, systems, and team. Output: prioritised improvement roadmap." },
+      { "step": "2", "label": "Design & Selection", "desc": "Requirements defined, WMS vendor evaluated, integration architecture mapped, business case built." },
+      { "step": "3", "label": "Implementation", "desc": "Phased rollout with go-live protection. Configuration, testing, training, and first-wave go-live." },
+      { "step": "4", "label": "Stabilisation", "desc": "30-day hypercare post go-live. KPI measurement against baseline, issue resolution, team handover." }
+    ],
+    "casesHeadline": "WMS case studies",
+    "casesViewAll": "View all →",
+    "ctaHeadline": "Start with a 30-day diagnostic",
+    "ctaSub": "We map your warehouse operations, benchmark against your industry, and identify the highest-value changes before any system selection begins.",
+    "ctaBtn": "Book a Diagnostic →"
+  },
+  "transportation": {
+    "breadcrumbParent": "Solutions",
+    "eyebrow": "TMS Solutions",
+    "headline": "Transportation management that cuts freight costs and delivery times",
+    "sub": "We implement transportation management systems and carrier network strategies that give you visibility, control, and cost reduction — across every route and every carrier.",
+    "ctaBook": "Book a Diagnostic →",
+    "ctaCases": "View TMS Case Studies",
+    "stats": [
+      { "value": "22%", "label": "Avg freight cost reduction" },
+      { "value": "15%", "label": "Faster avg delivery" },
+      { "value": "4.8/5", "label": "Driver satisfaction" },
+      { "value": "98%", "label": "Delivery SLA maintained" }
+    ],
+    "servicesEyebrow": "What We Deliver",
+    "servicesHeadline": "Four core TMS service areas",
+    "services": [
+      {
+        "number": "01",
+        "title": "TMS Assessment & Selection",
+        "points": [
+          "Current-state carrier and freight cost analysis",
+          "TMS requirements definition and platform evaluation",
+          "Integration architecture with WMS, ERP, and carrier APIs",
+          "Business case development with freight savings model"
+        ]
+      },
+      {
+        "number": "02",
+        "title": "TMS Implementation & Go-Live",
+        "points": [
+          "Carrier onboarding and rate card configuration",
+          "Dynamic route optimisation rule setup",
+          "Last-mile delivery integration and tracking setup",
+          "Staged go-live with carrier performance baseline"
+        ]
+      },
+      {
+        "number": "03",
+        "title": "Carrier Network Optimisation",
+        "points": [
+          "Carrier performance benchmarking by lane and service type",
+          "Multi-carrier rate comparison and negotiation support",
+          "Carrier SLA scorecard design and quarterly review cadence",
+          "Backup carrier strategy for peak and disruption scenarios"
+        ]
+      },
+      {
+        "number": "04",
+        "title": "Network Design & Consolidation",
+        "points": [
+          "Distribution network modelling across warehouse locations",
+          "Coverage zone analysis and overlap identification",
+          "Freight consolidation opportunity mapping",
+          "Network rationalisation business case and migration plan"
+        ]
+      }
+    ],
+    "processEyebrow": "Our Process",
+    "processHeadline": "How a TMS engagement works",
+    "steps": [
+      { "step": "1", "label": "30-Day Diagnostic", "desc": "Carrier audit, freight cost analysis, and route performance review. Output: freight savings opportunity map." },
+      { "step": "2", "label": "Design & Selection", "desc": "TMS platform selected, carrier strategy defined, integration architecture mapped, business case built." },
+      { "step": "3", "label": "Implementation", "desc": "Carrier onboarding, rate configuration, route optimisation setup, and staged go-live across route groups." },
+      { "step": "4", "label": "Optimisation", "desc": "30-day post-launch review. Carrier performance measured, routing rules refined, savings validated." }
+    ],
+    "casesHeadline": "TMS case studies",
+    "casesViewAll": "View all →",
+    "ctaHeadline": "Start with a 30-day diagnostic",
+    "ctaSub": "We audit your carrier network, analyse your freight spend, and identify the highest-value changes before any TMS selection begins.",
+    "ctaBtn": "Book a Diagnostic →"
+  },
+  "ecommerce": {
+    "breadcrumbParent": "Industries",
+    "breadcrumb": "E-Commerce",
+    "headline": "Operational infrastructure for e-commerce at scale",
+    "sub": "From single-warehouse DTC brands to multi-channel platforms, we design and implement the WMS and TMS systems that keep fulfilment accurate and freight costs under control.",
+    "ctaBook": "Book a Diagnostic →",
+    "ctaCases": "See Case Studies",
+    "stats": [
+      { "value": "35%", "label": "Avg picking error reduction" },
+      { "value": "99.4%", "label": "Order accuracy achieved" },
+      { "value": "40%", "label": "Avg stockout reduction" },
+      { "value": "87%", "label": "Returns recovery rate" }
+    ],
+    "challengesEyebrow": "E-Commerce Challenges",
+    "challengesHeadline": "The operational gaps that cost e-commerce operators margin",
+    "challengesPara": "E-commerce logistics combines the complexity of retail velocity with the precision demands of individual order fulfilment. The gaps between channels, systems, and physical operations compound quickly — especially at scale.",
+    "challengesLink": "View e-commerce case studies →",
+    "challenges": [
+      { "title": "Peak volume without infrastructure", "desc": "4× volume surges during peak season with WMS systems that weren't designed for it — leading to errors, overtime, and backorders." },
+      { "title": "Multi-channel inventory desynchronisation", "desc": "Inventory counts that live in 5 different systems, updated on different schedules, leading to overselling and excess safety stock." },
+      { "title": "Returns destroying margin", "desc": "28%+ return rates with no defined grading process — slow restocking, inconsistent decisions, and written-off sellable stock." },
+      { "title": "Carrier cost and SLA opacity", "desc": "No visibility into which carriers are underperforming, and no leverage to renegotiate — freight spend growing faster than revenue." }
+    ],
+    "solutionsEyebrow": "What We Deliver",
+    "solutionsHeadline": "Solutions built for e-commerce operations",
+    "solutions": [
+      { "icon": "▦", "title": "WMS Implementation", "desc": "End-to-end warehouse management system design, selection, and deployment — including directed put-away, pick wave logic, and labour productivity tracking.", "href": "/services/warehouse" },
+      { "icon": "◈", "title": "Omnichannel Inventory", "desc": "Unified inventory master layer across all sales channels with channel-level ATP buffers and automated daily reconciliation.", "href": "/services/warehouse" },
+      { "icon": "↩", "title": "Returns Processing", "desc": "Dedicated returns cell design with grading decision matrices, 48-hour processing SLAs, and Grade B liquidation channel setup.", "href": "/services/warehouse" },
+      { "icon": "◎", "title": "Carrier & TMS Strategy", "desc": "Carrier network audit, performance benchmarking, TMS implementation with dynamic route optimisation for last-mile delivery.", "href": "/services/transportation" }
+    ],
+    "learnMore": "Learn more →",
+    "featuredCasesHeadline": "E-Commerce case studies",
+    "featuredCasesViewAll": "View all cases →",
+    "featuredCases": [
+      { "slug": "ecommerce-wms-peak-readiness", "metric": "35% error reduction", "headline": "WMS Implementation Cuts Picking Errors 35% Before Peak Season" },
+      { "slug": "omnichannel-inventory-visibility", "metric": "40% fewer stockouts", "headline": "Real-Time Inventory Visibility Eliminates Stockouts Across 5 Sales Channels" },
+      { "slug": "ecommerce-returns-processing", "metric": "87% recovery rate", "headline": "Returns Processing Time Halved, Recovery Rate Reaches 87%" }
+    ],
+    "readCase": "Read case study →",
+    "ctaHeadline": "Ready to fix your e-commerce operations?",
+    "ctaSub": "Start with a 30-day operational diagnostic. We identify the highest-leverage changes across your fulfilment and freight network.",
+    "ctaBtn": "Book a Diagnostic →"
+  },
+  "about": {
+    "eyebrow": "About Meridian Advisory",
+    "headline": "Operators who've been in the warehouse.",
+    "sub": "We're not strategy consultants who hand over a report and leave. We're operations practitioners who've run warehouses, managed carrier networks, and implemented the systems ourselves.",
+    "teamHeadline": "The team",
+    "ctaHeadline": "Work with us",
+    "ctaSub": "We take on a limited number of engagements each quarter to ensure every client gets senior-level attention.",
+    "ctaBtn": "Get in Touch →"
+  },
+  "contact": {
+    "eyebrow": "Get In Touch",
+    "headline": "Start a conversation.",
+    "sub": "Whether you're dealing with a specific operational problem or just want to understand what a diagnostic looks like — we're happy to talk.",
+    "formName": "Full name",
+    "formEmail": "Email address",
+    "formCompany": "Company",
+    "formMessage": "Tell us about your situation",
+    "formSubmit": "Send Message →",
+    "formSending": "Sending...",
+    "formSuccess": "Message sent. We'll be in touch within one business day.",
+    "officesHeadline": "Our Offices",
+    "responseTime": "Response Time",
+    "responseDesc": "We respond to all enquiries within one business day.",
+    "engagements": "Engagements",
+    "engagementsDesc": "We take on a limited number of new engagements each quarter."
+  },
+  "advisory": {
+    "breadcrumbParent": "Services",
+    "eyebrow": "03 / Embedded Advisory · Ongoing retainer",
+    "headline": "A thinking partner for decisions that compound.",
+    "sub": "Senior strategic counsel delivered through a monthly retainer — keeping your leadership team honest, focused, and accountable to the decisions that shape your trajectory.",
+    "whatIncludesTitle": "What it includes",
+    "whoForTitle": "Who it's for",
+    "whoForPara1": "Founders and CEOs of $10M–$100M businesses who want a senior strategic sounding board without the cost or complexity of adding headcount.",
+    "whoForPara2": "Often chosen by clients who have completed an Implementation engagement and want to sustain the discipline of structured strategic thinking.",
+    "whoForNote": "Retainer engagements are limited to 6 clients per partner. We maintain small client lists intentionally — so the counsel you receive reflects genuine attention, not template thinking.",
+    "includes": [
+      "Monthly 3-hour strategy session with a senior Meridian partner",
+      "Priority initiatives review and accountability tracking",
+      "Decision stress-testing and scenario analysis",
+      "Unlimited async counsel (72-hour response SLA)",
+      "Quarterly performance review against stated objectives",
+      "Annual strategy refresh facilitation"
+    ],
+    "ctaHeadline": "Capacity is limited.",
+    "ctaSub": "Reach out to discuss whether a retainer spot is currently available.",
+    "ctaBtn": "Enquire about availability ↗"
+  },
+  "servicesIndex": {
+    "eyebrow": "Solutions / Services",
+    "headline": "Three ways to work together.",
+    "services": [
+      {
+        "number": "01",
+        "title": "Diagnostic Sprint",
+        "timeline": "30 days",
+        "ideal": "Businesses that sense something is wrong but can't locate the root cause.",
+        "deliverables": [
+          "Full operational mapping across all functions",
+          "Financial leak analysis and margin reconstruction",
+          "Priority-ranked findings document (30–50 pages)",
+          "90-day action roadmap with owner assignments",
+          "Leadership readout and Q&A session"
+        ],
+        "href": "/services/warehouse"
+      },
+      {
+        "number": "02",
+        "title": "Implementation",
+        "timeline": "90–180 days",
+        "ideal": "Businesses with a clear diagnosis that need hands-on help executing the changes.",
+        "deliverables": [
+          "Dedicated workstream management",
+          "Process redesign and SOP documentation",
+          "Technology and systems configuration",
+          "Weekly executive reporting",
+          "Measurable outcome tracking against baseline"
+        ],
+        "href": "/services/transportation"
+      },
+      {
+        "number": "03",
+        "title": "Embedded Advisory",
+        "timeline": "Ongoing retainer",
+        "ideal": "Leadership teams that want a senior strategic thinking partner without adding headcount.",
+        "deliverables": [
+          "Monthly strategy sessions with senior partner",
+          "Decision review and stress-testing",
+          "Priority initiatives oversight",
+          "Unlimited async counsel",
+          "Quarterly performance review"
+        ],
+        "href": "/services/advisory"
+      }
+    ],
+    "whatYouReceive": "What you receive",
+    "bestFor": "Best for:",
+    "learnMore": "Learn more ↗",
+    "ctaHeadline": "Not sure which is right for you?",
+    "ctaSub": "A 30-minute call is usually enough to know.",
+    "ctaBtn": "Book a conversation ↗"
+  },
+  "industriesIndex": {
+    "eyebrow": "行業 / Industries",
+    "headline": "Sector depth, not sector breadth.",
+    "sub": "We work exclusively in three sectors. That focus means we walk into every engagement already knowing the benchmarks, the common failure modes, and the levers that move the numbers.",
+    "coreChallenge": "The core challenge:",
+    "whereFocus": "Where we focus",
+    "explore": "Explore",
+    "industries": [
+      {
+        "number": "01",
+        "title": "E-Commerce",
+        "challenge": "Peak volume management, omnichannel inventory, and returns processing for DTC and marketplace brands.",
+        "stat": { "value": "35%", "label": "avg picking error reduction" },
+        "focus": ["WMS design & implementation", "Omnichannel inventory layer", "Returns processing cell", "Carrier & TMS strategy"],
+        "href": "/industries/ecommerce"
+      },
+      {
+        "number": "02",
+        "title": "Wholesale & Distribution",
+        "challenge": "Margin compression from rising logistics costs and fragmented supplier bases.",
+        "stat": { "value": "22%", "label": "avg freight cost reduction" },
+        "focus": ["TMS rollout & carrier strategy", "Network design & consolidation", "Supplier rationalisation", "Working capital optimisation"],
+        "href": "/industries/wholesale"
+      },
+      {
+        "number": "03",
+        "title": "Manufacturing",
+        "challenge": "Capacity underutilisation and overhead structures misaligned with volume realities.",
+        "stat": { "value": "12–20%", "label": "throughput improvement without capex" },
+        "focus": ["Warehouse layout redesign", "Slotting optimisation", "Inbound/outbound flow", "Make-vs-buy analysis"],
+        "href": "/industries/manufacturing"
+      }
+    ],
+    "ctaHeadline": "Don't see your sector?",
+    "ctaSub": "We occasionally work outside these verticals for the right client. Reach out and we'll be direct about fit.",
+    "ctaBtn": "Start the conversation ↗"
+  },
+  "wholesale": {
+    "breadcrumbParent": "Industries",
+    "eyebrow": "01 / Wholesale Distribution · 批發分銷",
+    "headline": "Defending margin in a distribution business.",
+    "sub": "Wholesale distribution is a margin management business disguised as a logistics business. Our work in this sector focuses on the structural levers that protect and expand distribution margins.",
+    "challengesHeadline": "The four challenges we see most often",
+    "challenges": [
+      {
+        "title": "Supplier fragmentation",
+        "body": "Too many suppliers, too little negotiating leverage. As SKU counts climb, purchasing power per supplier declines and administrative overhead rises disproportionately."
+      },
+      {
+        "title": "Logistics cost creep",
+        "body": "Rising freight, fuel, and labour costs eat into distribution margins that were thin to begin with. Route inefficiencies compound over time without structured analysis."
+      },
+      {
+        "title": "Working capital trap",
+        "body": "Slow-moving inventory ties up capital that could fund growth. Most distributors don't know which SKUs are actually profitable when carrying costs are included."
+      },
+      {
+        "title": "Customer concentration risk",
+        "body": "Revenue is often concentrated in a handful of accounts. Losing one large customer can trigger a structural crisis rather than a recoverable shortfall."
+      }
+    ],
+    "resultsHeadline": "What a typical engagement delivers",
+    "resultsPara1": "Most wholesale distributors we work with have grown by adding volume without scrutinising whether that volume is actually profitable. Our diagnostic phase typically uncovers 2–4 percentage points of hidden margin within the existing business.",
+    "resultsPara2": "Implementation work then focuses on locking those gains in — through supplier consolidation, route optimisation, SKU discipline, and working capital management.",
+    "metrics": [
+      { "metric": "18–24%", "desc": "EBIT margin improvement (median across engagements)" },
+      { "metric": "30–40%", "desc": "Reduction in active supplier count" },
+      { "metric": "15–25%", "desc": "Improvement in inventory turn" },
+      { "metric": "2–3×", "desc": "Return on engagement fee within 12 months" }
+    ],
+    "ctaHeadline": "Start with the Diagnostic Sprint.",
+    "ctaSub": "30 days. A clear picture of where you are losing margin.",
+    "ctaBtn": "Book a Diagnostic ↗"
+  },
+  "manufacturing": {
+    "breadcrumbParent": "Industries",
+    "eyebrow": "02 / Manufacturing · 製造業",
+    "headline": "More throughput from the assets you already own.",
+    "sub": "Manufacturing improvement doesn't always require capital expenditure. The most durable gains come from aligning your overhead structure, scheduling discipline, and supplier relationships with actual volume realities.",
+    "challengesHeadline": "The four challenges we see most often",
+    "challenges": [
+      {
+        "title": "Capacity vs. overhead mismatch",
+        "body": "Fixed overhead structures built for peak volumes become a drag during contraction. Most manufacturers don't have a clear view of their true breakeven by product line."
+      },
+      {
+        "title": "Production scheduling inefficiency",
+        "body": "Suboptimal scheduling creates unnecessary changeovers, inflated WIP, and missed delivery windows — all without appearing in the P&L as a named line item."
+      },
+      {
+        "title": "Supply chain concentration",
+        "body": "Single-source dependencies create fragility. Many manufacturers have rationalised supplier counts too aggressively, trading resilience for short-term cost savings."
+      },
+      {
+        "title": "Make-vs-buy drift",
+        "body": "Decisions made at one cost structure remain in place long after the economics have changed. Regular make-vs-buy review is rare but high-value."
+      }
+    ],
+    "resultsHeadline": "What a typical engagement delivers",
+    "resultsPara1": "Our manufacturing engagements start with a detailed cost model — not the management accounts version, but a true product-level view with overhead properly allocated. That analysis typically surfaces 3–5 underperforming product lines that are consuming disproportionate capacity.",
+    "resultsPara2": "Implementation then focuses on scheduling discipline, supplier consolidation, and — where warranted — rationalising the product range itself.",
+    "metrics": [
+      { "metric": "12–20%", "desc": "Throughput improvement without capital expenditure" },
+      { "metric": "15–25%", "desc": "Overhead cost reduction after rationalisation" },
+      { "metric": "20–35%", "desc": "Reduction in changeover time through scheduling" },
+      { "metric": "8–14%", "desc": "EBIT margin improvement (median across engagements)" }
+    ],
+    "ctaHeadline": "Start with the Diagnostic Sprint.",
+    "ctaSub": "30 days. A product-level view of where you are leaving margin on the floor.",
+    "ctaBtn": "Book a Diagnostic ↗"
+  },
+  "insights": {
+    "eyebrow": "洞察 / Insights",
+    "headline": "Thinking that earns the reading.",
+    "items": [
+      {
+        "slug": "why-operational-problems-are-structural",
+        "tag": "Operations",
+        "title": "Why operational problems are usually structural ones in disguise",
+        "excerpt": "When leadership teams describe their business as 'too busy but not moving', they are almost always describing a structural design failure — not an effort problem.",
+        "date": "April 2025",
+        "readTime": "6 min read"
+      },
+      {
+        "slug": "the-diagnostic-before-the-prescription",
+        "tag": "Strategy",
+        "title": "The diagnostic before the prescription: why we never lead with solutions",
+        "excerpt": "Most consultants arrive with answers. The honest ones arrive with questions. Understanding why changes everything about the quality of the recommendation that follows.",
+        "date": "March 2025",
+        "readTime": "5 min read"
+      },
+      {
+        "slug": "margin-compression-wholesale",
+        "tag": "Wholesale",
+        "title": "Margin compression in wholesale distribution: the three levers that actually move the number",
+        "excerpt": "Wholesale distributors facing margin pressure typically look at procurement first. That is rarely where the biggest opportunity sits.",
+        "date": "February 2025",
+        "readTime": "8 min read"
+      },
+      {
+        "slug": "sku-rationalisation",
+        "tag": "Retail",
+        "title": "The counterintuitive case for selling fewer products",
+        "excerpt": "Range expansion is the default growth strategy in retail. The data suggests it creates more complexity than revenue — and destroys margin in the process.",
+        "date": "January 2025",
+        "readTime": "7 min read"
+      },
+      {
+        "slug": "embedded-vs-advisory",
+        "tag": "Advisory",
+        "title": "Embedded execution vs. advisory: which model actually changes behaviour",
+        "excerpt": "The consulting industry has a delivery problem. Recommendations without implementation responsibility produce slide decks, not outcomes.",
+        "date": "December 2024",
+        "readTime": "5 min read"
+      },
+      {
+        "slug": "manufacturing-throughput-without-capex",
+        "tag": "Manufacturing",
+        "title": "Improving manufacturing throughput without capital expenditure",
+        "excerpt": "The instinct to solve capacity problems with new equipment is understandable. It is also frequently unnecessary. The scheduling and process lever is almost always larger.",
+        "date": "November 2024",
+        "readTime": "9 min read"
+      }
+    ]
+  },
+  "philosophy": {
+    "eyebrow": "理念 / Philosophy",
+    "headline": "The beliefs that shape how we work.",
+    "openingLeft": "Consulting has a reputation problem. Too many engagements produce reports that gather dust. We built Meridian because we believe there is a better model.",
+    "openingRight1": "The better model starts with a different set of beliefs. About what causes operational problems. About what clients deserve to hear. About what \"done\" actually means.",
+    "openingRight2": "These are the four beliefs we return to, in every engagement, when things get complicated.",
+    "principles": [
+      {
+        "number": "01",
+        "title": "Problems have structural causes",
+        "body": "Every operational failure — a missed forecast, a margin leak, a broken handoff — is a symptom. The cause lives upstream in how the organisation is designed. We don't fix the symptom. We redesign the system that keeps producing it."
+      },
+      {
+        "number": "02",
+        "title": "Rigour over reassurance",
+        "body": "Most consultants tell clients what they want to hear. We tell clients what the data says. That means some engagements begin with uncomfortable findings. We believe discomfort at the diagnosis stage is far cheaper than comfort that delays the cure."
+      },
+      {
+        "number": "03",
+        "title": "Ownership transfers with delivery",
+        "body": "We measure success not by the quality of our slide decks but by whether the organisation can sustain the improvement after we leave. Every engagement ends with codified processes, trained teams, and measurable baselines — not a dependency."
+      },
+      {
+        "number": "04",
+        "title": "Depth over breadth",
+        "body": "We work in three industries. We could work in more. We choose not to because deep expertise — knowing the specific cost structures, compliance landscapes, and buyer behaviours of your sector — produces better outcomes than generalist pattern-matching."
+      }
+    ],
+    "ctaSub": "Curious whether our approach fits your situation?",
+    "ctaBtn": "See our approach ↗"
+  },
+  "approach": {
+    "eyebrow": "方法 / Approach",
+    "headline": "A structured process designed to deliver, not just advise.",
+    "sub": "Three phases. Fixed timelines. Measurable outcomes at each stage. No open-ended retainers disguised as transformation programmes.",
+    "outcomeLabel": "Outcome",
+    "whatWeDoLabel": "What we do",
+    "phases": [
+      {
+        "phase": "Phase 01",
+        "title": "Diagnostic",
+        "duration": "Weeks 1–4",
+        "steps": [
+          "Stakeholder interviews across all functions",
+          "Financial and operational data review",
+          "Process mapping and bottleneck identification",
+          "Competitive context and benchmarking",
+          "Prioritised findings and roadmap delivery"
+        ],
+        "outcome": "A 30–50 page findings document and a ranked action roadmap, delivered in a structured readout with your leadership team."
+      },
+      {
+        "phase": "Phase 02",
+        "title": "Implementation",
+        "duration": "Months 2–6",
+        "steps": [
+          "Workstream launch with internal owners",
+          "Weekly cadence and milestone tracking",
+          "Process redesign and SOP documentation",
+          "Technology configuration and integration",
+          "Progress reporting with financial impact tracking"
+        ],
+        "outcome": "Measurable improvements across targeted metrics, with all changes embedded in your operating rhythm — not dependent on our continued presence."
+      },
+      {
+        "phase": "Phase 03",
+        "title": "Handover",
+        "duration": "Week 20–24",
+        "steps": [
+          "Documentation of all process changes",
+          "Internal team training and knowledge transfer",
+          "Baseline vs. outcome performance review",
+          "30-day support window post-exit",
+          "Optional retainer structure for ongoing counsel"
+        ],
+        "outcome": "Your team runs the improved system independently. We leave a capability, not a dependency."
+      }
+    ],
+    "principles": [
+      { "label": "Fixed-fee engagements", "desc": "No surprise billings. Scope, timeline, and price are agreed at the start." },
+      { "label": "Diagnostic before prescription", "desc": "We never recommend a solution before completing a structured assessment." },
+      { "label": "No offshore delivery", "desc": "The team you meet is the team that does the work. No hand-offs to junior associates." }
+    ],
+    "ctaHeadline": "Start with the diagnostic.",
+    "ctaSub": "30 days. A clear picture of where you are losing value.",
+    "ctaBtn": "Book a Diagnostic ↗"
+  }
+}
