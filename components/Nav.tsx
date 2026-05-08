@@ -1,23 +1,40 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
-const links = [
-  { href: "/philosophy", label: "Philosophy", zh: "理念" },
-  { href: "/approach", label: "Approach", zh: "方法" },
-  { href: "/services", label: "Services", zh: "服务" },
-  { href: "/industries", label: "Industries", zh: "行业" },
-  { href: "/insights", label: "Insights", zh: "洞察" },
-  { href: "/about", label: "About", zh: "关于" },
+const navItems = [
+  {
+    href: "/industries",
+    label: "Industries",
+    children: [
+      { href: "/industries/ecommerce", label: "E-Commerce", desc: "Fulfillment, returns, omnichannel" },
+      { href: "/industries/wholesale", label: "Wholesale & Distribution", desc: "Multi-warehouse, B2B logistics" },
+      { href: "/industries/manufacturing", label: "Manufacturing", desc: "MES integration, materials flow" },
+    ],
+  },
+  {
+    href: "/services",
+    label: "Solutions",
+    children: [
+      { href: "/services/warehouse", label: "Warehouse Management", desc: "WMS strategy, implementation & optimisation" },
+      { href: "/services/transportation", label: "Transportation Management", desc: "TMS, carrier management & route optimisation" },
+      { href: "/services/advisory", label: "Strategic Advisory", desc: "Retainer-based operational counsel" },
+    ],
+  },
+  { href: "/cases", label: "Cases" },
+  { href: "/insights", label: "Insights" },
+  { href: "/about", label: "About" },
 ];
 
 export default function Nav() {
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -26,8 +43,21 @@ export default function Nav() {
   }, []);
 
   useEffect(() => {
-    setOpen(false);
+    setMobileOpen(false);
+    setActiveDropdown(null);
   }, [pathname]);
+
+  const openDropdown = (label: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setActiveDropdown(label);
+  };
+
+  const closeDropdown = () => {
+    closeTimer.current = setTimeout(() => setActiveDropdown(null), 120);
+  };
+
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(href + "/");
 
   return (
     <header
@@ -52,10 +82,11 @@ export default function Nav() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          position: "relative",
         }}
       >
         {/* Logo */}
-        <Link href="/" style={{ textDecoration: "none" }}>
+        <Link href="/" style={{ textDecoration: "none", flexShrink: 0 }}>
           <span
             style={{
               fontFamily: "var(--font-heading-en)",
@@ -71,113 +102,213 @@ export default function Nav() {
 
         {/* Desktop nav */}
         <nav
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "32px",
-          }}
-          className="hidden-mobile"
+          style={{ display: "flex", alignItems: "center", gap: "4px" }}
+          className="nav-desktop"
         >
-          {links.map((l) => {
-            const active = pathname === l.href || pathname.startsWith(l.href + "/");
+          {navItems.map((item) => {
+            const active = isActive(item.href);
+            const open = activeDropdown === item.label;
+
             return (
-              <Link
-                key={l.href}
-                href={l.href}
-                style={{
-                  fontFamily: "var(--font-body-en)",
-                  fontSize: "14px",
-                  fontWeight: 400,
-                  letterSpacing: "0.01em",
-                  color: active ? "var(--color-forest)" : "var(--color-slate)",
-                  textDecoration: "none",
-                  borderBottom: active ? "1px solid var(--color-forest)" : "1px solid transparent",
-                  paddingBottom: "1px",
-                  transition: "color 0.2s, border-color 0.2s",
-                }}
+              <div
+                key={item.href}
+                style={{ position: "relative" }}
+                onMouseEnter={() => item.children && openDropdown(item.label)}
+                onMouseLeave={() => item.children && closeDropdown()}
               >
-                {l.label}
-              </Link>
+                <Link
+                  href={item.href}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "3px",
+                    padding: "6px 14px",
+                    fontSize: "14px",
+                    fontWeight: active ? 500 : 400,
+                    letterSpacing: "0.01em",
+                    color: active ? "var(--color-forest)" : "var(--color-slate)",
+                    textDecoration: "none",
+                    borderRadius: "4px",
+                    transition: "color 0.2s",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {item.label}
+                  {item.children && (
+                    <ChevronDown
+                      size={13}
+                      style={{
+                        transition: "transform 0.2s",
+                        transform: open ? "rotate(180deg)" : "none",
+                        opacity: 0.55,
+                        marginTop: "1px",
+                      }}
+                    />
+                  )}
+                </Link>
+
+                {/* Active underline */}
+                {active && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: "-1px",
+                      left: "14px",
+                      right: "14px",
+                      height: "2px",
+                      backgroundColor: "var(--color-forest)",
+                      borderRadius: "1px",
+                    }}
+                  />
+                )}
+
+                {/* Mega dropdown */}
+                {item.children && open && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "calc(100% + 10px)",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      backgroundColor: "#fff",
+                      border: "1px solid var(--color-border)",
+                      borderRadius: "10px",
+                      boxShadow: "0 12px 40px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)",
+                      padding: "8px",
+                      minWidth: "272px",
+                      zIndex: 200,
+                    }}
+                    onMouseEnter={() => openDropdown(item.label)}
+                    onMouseLeave={() => closeDropdown()}
+                  >
+                    {item.children.map((child) => {
+                      const childActive = pathname === child.href || pathname.startsWith(child.href + "/");
+                      return (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          style={{
+                            display: "block",
+                            padding: "10px 14px",
+                            borderRadius: "6px",
+                            textDecoration: "none",
+                            backgroundColor: childActive ? "var(--color-muted)" : "transparent",
+                            transition: "background 0.15s",
+                          }}
+                          onMouseEnter={(e) => {
+                            (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "var(--color-muted)";
+                          }}
+                          onMouseLeave={(e) => {
+                            (e.currentTarget as HTMLAnchorElement).style.backgroundColor = childActive ? "var(--color-muted)" : "transparent";
+                          }}
+                        >
+                          <div style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-dark)", marginBottom: "2px" }}>
+                            {child.label}
+                          </div>
+                          <div style={{ fontSize: "12px", color: "var(--color-slate)", lineHeight: 1.4 }}>
+                            {child.desc}
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
             );
           })}
         </nav>
 
-        {/* CTA */}
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+        {/* CTA + mobile burger */}
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", flexShrink: 0 }}>
           <Link
             href="/contact"
-            className="hidden-mobile"
+            className="nav-desktop"
             style={{
-              fontFamily: "var(--font-body-en)",
               fontSize: "13px",
               fontWeight: 500,
               color: "var(--color-white)",
               backgroundColor: "var(--color-forest)",
-              padding: "8px 20px",
+              padding: "8px 18px",
               borderRadius: "4px",
               textDecoration: "none",
               letterSpacing: "0.02em",
               transition: "background-color 0.2s",
+              whiteSpace: "nowrap",
             }}
           >
-            Book a Diagnostic ↗
+            Contact Us ↗
           </Link>
 
-          {/* Mobile burger */}
           <button
-            onClick={() => setOpen(!open)}
-            className="show-mobile"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="nav-mobile"
             style={{
               background: "none",
               border: "none",
               cursor: "pointer",
               color: "var(--color-dark)",
               padding: "4px",
+              display: "flex",
+              alignItems: "center",
             }}
             aria-label="Toggle menu"
           >
-            {open ? <X size={22} /> : <Menu size={22} />}
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
       {/* Mobile drawer */}
-      {open && (
+      {mobileOpen && (
         <div
           style={{
             backgroundColor: "var(--color-warm-white)",
             borderTop: "1px solid var(--color-border)",
-            padding: "24px 32px 32px",
+            padding: "16px 24px 32px",
+            maxHeight: "80vh",
+            overflowY: "auto",
           }}
         >
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                padding: "14px 0",
-                borderBottom: "1px solid var(--color-border)",
-                textDecoration: "none",
-                color: "var(--color-dark)",
-                fontFamily: "var(--font-heading-en)",
-                fontSize: "18px",
-                fontWeight: 400,
-              }}
-            >
-              <span>{l.label}</span>
-              <span
+          {navItems.map((item) => (
+            <div key={item.href}>
+              <Link
+                href={item.href}
                 style={{
-                  fontFamily: "var(--font-heading-zh)",
-                  fontSize: "14px",
-                  color: "var(--color-slate)",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  padding: "14px 0",
+                  borderBottom: "1px solid var(--color-border)",
+                  textDecoration: "none",
+                  color: "var(--color-dark)",
+                  fontFamily: "var(--font-heading-en)",
+                  fontSize: "17px",
+                  fontWeight: 400,
                 }}
               >
-                {l.zh}
-              </span>
-            </Link>
+                {item.label}
+              </Link>
+              {item.children && (
+                <div style={{ paddingLeft: "16px" }}>
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.href}
+                      href={child.href}
+                      style={{
+                        display: "block",
+                        padding: "10px 0",
+                        borderBottom: "1px solid #f0f0ec",
+                        textDecoration: "none",
+                        color: "var(--color-slate)",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
           <Link
             href="/contact"
@@ -190,24 +321,23 @@ export default function Nav() {
               color: "var(--color-white)",
               borderRadius: "4px",
               textDecoration: "none",
-              fontFamily: "var(--font-body-en)",
               fontWeight: 500,
               fontSize: "14px",
             }}
           >
-            Book a Diagnostic ↗
+            Contact Us ↗
           </Link>
         </div>
       )}
 
       <style>{`
         @media (min-width: 768px) {
-          .hidden-mobile { display: flex !important; }
-          .show-mobile { display: none !important; }
+          .nav-desktop { display: flex !important; }
+          .nav-mobile { display: none !important; }
         }
         @media (max-width: 767px) {
-          .hidden-mobile { display: none !important; }
-          .show-mobile { display: block !important; }
+          .nav-desktop { display: none !important; }
+          .nav-mobile { display: flex !important; }
         }
       `}</style>
     </header>

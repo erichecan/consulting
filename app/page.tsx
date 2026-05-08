@@ -10,31 +10,61 @@ const metrics = [
 const services = [
   {
     number: "01",
-    title: "Diagnostic Sprint",
-    zh: "诊断冲刺",
-    desc: "A 30-day structured assessment that maps every friction point across your operations and produces a prioritised action roadmap.",
-    href: "/services/diagnostic",
+    title: "Warehouse Management",
+    zh: "仓库管理系统",
+    desc: "WMS strategy, selection, and implementation — from slotting optimisation to omnichannel inventory visibility and returns processing.",
+    href: "/services/warehouse",
   },
   {
     number: "02",
-    title: "Implementation",
-    zh: "落地执行",
-    desc: "We embed alongside your team for 90–180 days to drive the changes identified in the diagnostic phase from concept to measurable outcome.",
-    href: "/services/implementation",
+    title: "Transportation Management",
+    zh: "运输管理系统",
+    desc: "TMS implementation, carrier network audits, and dynamic route optimisation to reduce freight spend and improve delivery SLAs.",
+    href: "/services/transportation",
   },
   {
     number: "03",
-    title: "Embedded Advisory",
-    zh: "嵌入式顾问",
-    desc: "Ongoing strategic counsel delivered through a retainer model — keeping your leadership team accountable to decisions that compound over time.",
+    title: "Strategic Advisory",
+    zh: "战略顾问",
+    desc: "Ongoing operational counsel through a retainer model — keeping your leadership aligned to the decisions that compound over time.",
     href: "/services/advisory",
   },
 ];
 
 const industries = [
-  { title: "Wholesale Distribution", zh: "批发分销", href: "/industries/wholesale" },
-  { title: "Precision Manufacturing", zh: "精密制造", href: "/industries/manufacturing" },
-  { title: "Specialty Retail", zh: "专业零售", href: "/industries/retail" },
+  { title: "E-Commerce", zh: "电子商务", href: "/industries/ecommerce" },
+  { title: "Wholesale & Distribution", zh: "批发分销", href: "/industries/wholesale" },
+  { title: "Manufacturing", zh: "精密制造", href: "/industries/manufacturing" },
+];
+
+const featuredCases = [
+  {
+    slug: "ecommerce-wms-peak-readiness",
+    industry: "E-Commerce",
+    solution: "Warehouse Management",
+    metric: "35%",
+    metricLabel: "picking error reduction",
+    headline: "WMS Implementation Cuts Picking Errors 35% Before Peak Season",
+    accentColor: "var(--color-forest)",
+  },
+  {
+    slug: "wholesale-tms-freight-savings",
+    industry: "Wholesale",
+    solution: "Transportation Management",
+    metric: "22%",
+    metricLabel: "freight cost reduction",
+    headline: "TMS Rollout Reduces Freight Spend by 22% Across 200+ Daily Routes",
+    accentColor: "#0369A1",
+  },
+  {
+    slug: "wholesale-distribution-network",
+    industry: "Wholesale",
+    solution: "Transportation Management",
+    metric: "$1.4M",
+    metricLabel: "annual cost savings",
+    headline: "Distribution Network Consolidation Delivers $1.4M Annual Savings",
+    accentColor: "#0369A1",
+  },
 ];
 
 const insights = [
@@ -107,8 +137,8 @@ export default function Home() {
               marginBottom: "40px",
             }}
           >
-            Honest counsel.<br />
-            <span style={{ color: "var(--color-gold)" }}>Measurable</span> outcomes.
+            WMS & TMS expertise.<br />
+            <span style={{ color: "var(--color-gold)" }}>Measurable</span> results.
           </h1>
           <p
             style={{
@@ -120,9 +150,7 @@ export default function Home() {
               marginBottom: "48px",
             }}
           >
-            We partner with mid-market businesses to diagnose structural
-            inefficiencies and implement lasting operational change — without
-            the overhead of a big-four firm.
+            We design and implement warehouse and transportation management systems for e-commerce, wholesale, and manufacturing operators — delivering the first measurable outcome within 90 days.
           </p>
           <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
             <Link
@@ -335,6 +363,144 @@ export default function Home() {
                 >
                   Learn more ↗
                 </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Cases */}
+      <section style={{ backgroundColor: "var(--color-dark)", padding: "96px 0" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 32px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+              marginBottom: "48px",
+              flexWrap: "wrap",
+              gap: "16px",
+            }}
+          >
+            <div>
+              <p
+                style={{
+                  fontFamily: "var(--font-body-en)",
+                  fontSize: "11px",
+                  fontWeight: 500,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "var(--color-gold)",
+                  marginBottom: "12px",
+                }}
+              >
+                Client Results
+              </p>
+              <h2
+                style={{
+                  fontFamily: "var(--font-heading-en)",
+                  fontWeight: 300,
+                  fontSize: "clamp(28px, 3.5vw, 44px)",
+                  letterSpacing: "-0.02em",
+                  color: "var(--color-white)",
+                  lineHeight: "1.1",
+                }}
+              >
+                Real outcomes from recent engagements.
+              </h2>
+            </div>
+            <Link
+              href="/cases"
+              style={{
+                fontFamily: "var(--font-body-en)",
+                fontSize: "13px",
+                color: "rgba(255,255,255,0.7)",
+                textDecoration: "none",
+                borderBottom: "1px solid rgba(255,255,255,0.3)",
+                paddingBottom: "2px",
+                whiteSpace: "nowrap",
+              }}
+            >
+              All case studies ↗
+            </Link>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "1px",
+              backgroundColor: "rgba(255,255,255,0.07)",
+            }}
+            className="cases-grid"
+          >
+            {featuredCases.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/cases/${c.slug}`}
+                style={{ textDecoration: "none", display: "block" }}
+              >
+                <article
+                  style={{
+                    backgroundColor: "rgba(255,255,255,0.03)",
+                    padding: "40px 36px",
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    borderTop: `3px solid ${c.accentColor}`,
+                    transition: "background-color 0.2s",
+                    cursor: "pointer",
+                  }}
+                  className="featured-case-card"
+                >
+                  <div
+                    style={{
+                      fontSize: "11px",
+                      fontWeight: 600,
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                      color: "rgba(255,255,255,0.4)",
+                      marginBottom: "20px",
+                    }}
+                  >
+                    {c.industry} · {c.solution}
+                  </div>
+                  <div style={{ marginBottom: "20px" }}>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-heading-en)",
+                        fontSize: "48px",
+                        fontWeight: 700,
+                        color: "var(--color-gold)",
+                        letterSpacing: "-0.04em",
+                        lineHeight: 1,
+                      }}
+                    >
+                      {c.metric}
+                    </span>
+                    <br />
+                    <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.5)" }}>
+                      {c.metricLabel}
+                    </span>
+                  </div>
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-heading-en)",
+                      fontWeight: 400,
+                      fontSize: "16px",
+                      letterSpacing: "-0.01em",
+                      color: "rgba(255,255,255,0.85)",
+                      lineHeight: 1.4,
+                      flex: 1,
+                      marginBottom: "24px",
+                    }}
+                  >
+                    {c.headline}
+                  </h3>
+                  <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontWeight: 500 }}>
+                    Read case study →
+                  </span>
+                </article>
               </Link>
             ))}
           </div>
@@ -697,9 +863,11 @@ export default function Home() {
           .metrics-grid > div { padding-left: 0 !important; border-right: none !important; border-bottom: 1px solid var(--color-border); }
           .services-grid { grid-template-columns: 1fr !important; }
           .insights-grid { grid-template-columns: 1fr !important; }
+          .cases-grid { grid-template-columns: 1fr !important; }
         }
         .service-card:hover { background-color: var(--color-muted) !important; }
         .industry-row:hover span:last-child { transform: translateX(4px); transition: transform 0.2s; }
+        .featured-case-card:hover { background-color: rgba(255,255,255,0.06) !important; }
       `}</style>
     </>
   );
