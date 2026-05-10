@@ -97,10 +97,70 @@ export const cases = [
     ],
     tags: ["Returns Management", "E-Commerce", "Operations"],
   },
+  {
+    slug: "wholesale-erp-misfit-rescue",
+    industry: "Wholesale & Distribution",
+    solution: "ERP & Systems Advisory",
+    client: "Great Lakes Specialty Foods Ltd.",
+    headline: "Enterprise ERP Misfit Identified and Replaced, Eliminating 400+ Monthly Order Errors",
+    summary:
+      "A Mississauga food wholesaler with 1,200+ SKUs was sold an enterprise retail ERP built for chains ten times their size. After six months of cascading failures, we diagnosed the root cause and delivered a right-sized replacement in 11 weeks.",
+    metrics: [
+      { value: "400+", label: "Order errors eliminated monthly" },
+      { value: "92%", label: "B2B pricing accuracy restored" },
+      { value: "11wks", label: "Replacement system live" },
+    ],
+    tags: ["ERP Advisory", "Wholesale", "Systems Rescue"],
+  },
+  {
+    slug: "wholesale-b2b-pricing-recovery",
+    industry: "Wholesale & Distribution",
+    solution: "ERP & Systems Advisory",
+    client: "Pacific Gateway Food Distributors Inc.",
+    headline: "B2B Pricing Engine Rebuilt After System Migration — Invoice Disputes Down 94%",
+    summary:
+      "After a platform migration, a Burnaby specialty food distributor's customer portal was showing incorrect prices across 650+ restaurant accounts. Staff were manually correcting 80+ invoices daily. We rebuilt the pricing configuration without a system replacement.",
+    metrics: [
+      { value: "94%", label: "Invoice dispute reduction" },
+      { value: "80+", label: "Daily manual corrections eliminated" },
+      { value: "6wks", label: "Full pricing accuracy restored" },
+    ],
+    tags: ["ERP Advisory", "Wholesale", "Pricing Recovery"],
+  },
+  {
+    slug: "wholesale-systems-integration",
+    industry: "Wholesale & Distribution",
+    solution: "ERP & Systems Advisory",
+    client: "Trident Import & Distribution Ltd.",
+    headline: "Disconnected Shopify, ERP, and Accounting Systems Unified — Manual Re-Entry Eliminated",
+    summary:
+      "A Richmond Hill Asian food importer was re-entering every B2B order manually across three disconnected systems. We designed and built the integration layer that connected Shopify B2B, their ERP, and Xero — cutting order processing time by 71%.",
+    metrics: [
+      { value: "71%", label: "Order processing time reduction" },
+      { value: "0", label: "Manual re-entry steps remaining" },
+      { value: "3", label: "Systems connected in one layer" },
+    ],
+    tags: ["Systems Integration", "Wholesale", "ERP Advisory"],
+  },
+  {
+    slug: "wholesale-erp-upgrade-failure-rescue",
+    industry: "Wholesale & Distribution",
+    solution: "ERP & Systems Advisory",
+    client: "Lakeshore Food Group Inc.",
+    headline: "ERP Upgrade Go-Live Collapsed, Rescued and Completed — Operations Restored Within 18 Days",
+    summary:
+      "A Hamilton food wholesaler's long-planned ERP upgrade collapsed on go-live day: an incomplete data migration left 2,800 customer records unreadable, order processing halted for 72 hours, and the implementation partner withdrew. We stabilised operations, recovered the data, and completed the upgrade the original team could not.",
+    metrics: [
+      { value: "72hrs", label: "Order processing restored" },
+      { value: "2,800+", label: "Customer records recovered" },
+      { value: "18d", label: "Full system stable post-rescue" },
+    ],
+    tags: ["ERP Advisory", "Wholesale", "Upgrade Recovery"],
+  },
 ];
 
 const industries = ["All", "E-Commerce", "Wholesale & Distribution", "Manufacturing"];
-const solutions = ["All Solutions", "Warehouse Management", "Transportation Management"];
+const solutions = ["All Solutions", "Warehouse Management", "Transportation Management", "ERP & Systems Advisory"];
 
 export default function CasesPage() {
   return (

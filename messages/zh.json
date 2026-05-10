@@ -160,6 +160,42 @@
           { "value": "87%", "label": "可售商品回收率" },
           { "value": "28%→18%", "label": "實際退貨成本率" }
         ]
+      },
+      "wholesale-erp-misfit-rescue": {
+        "headline": "企業級 ERP 選型失當問題確診並完成替換，每月逾 400 宗訂單錯誤全數消除",
+        "summary": "密西沙加一間擁有逾 1,200 個 SKU 的食品批發商，被銷售了一套為十倍規模零售連鎖設計的企業 ERP。在六個月的連鎖失效後，我哋診斷出根本原因，並於 11 週內完成合規模替換。",
+        "metrics": [
+          { "value": "400+", "label": "每月訂單錯誤消除" },
+          { "value": "92%", "label": "B2B 定價準確率恢復" },
+          { "value": "11wks", "label": "替換系統上線" }
+        ]
+      },
+      "wholesale-b2b-pricing-recovery": {
+        "headline": "系統遷移後 B2B 定價引擎重建 — 發票糾紛下降 94%",
+        "summary": "平台遷移後，本那比一間專門食品分銷商的客戶門戶向逾 650 個餐廳客戶顯示錯誤價格，員工每日手動修正逾 80 張發票。我哋在毋須更換系統的前提下重建了定價配置。",
+        "metrics": [
+          { "value": "94%", "label": "發票糾紛減少" },
+          { "value": "80+", "label": "每日手動修正消除" },
+          { "value": "6wks", "label": "定價準確率完全恢復" }
+        ]
+      },
+      "wholesale-systems-integration": {
+        "headline": "Shopify、ERP 與會計系統互聯打通 — 人工重複錄入全面消除",
+        "summary": "列治文山一間亞裔食品進口商每張 B2B 訂單均需在三個獨立系統手動重複錄入。我哋設計並搭建了連接 Shopify B2B、ERP 與 Xero 的整合層，訂單處理時間縮短 71%。",
+        "metrics": [
+          { "value": "71%", "label": "訂單處理時間縮短" },
+          { "value": "0", "label": "人工重複錄入步驟" },
+          { "value": "3", "label": "系統整合至單一層" }
+        ]
+      },
+      "wholesale-erp-upgrade-failure-rescue": {
+        "headline": "ERP 升級上線崩潰、搶救並完成 — 18 天內業務運作全面恢復",
+        "summary": "哈密頓一間食品批發商精心籌備的 ERP 升級在上線當天崩潰：不完整的數據遷移令 2,800 個客戶記錄無法讀取，訂單處理停頓 72 小時，實施方亦於第二天撤離。我哋穩定了業務、恢復了數據，並完成了原團隊未能完成的升級。",
+        "metrics": [
+          { "value": "72hrs", "label": "訂單處理恢復" },
+          { "value": "2,800+", "label": "客戶記錄恢復" },
+          { "value": "18d", "label": "系統搶救後穩定" }
+        ]
       }
     }
   },

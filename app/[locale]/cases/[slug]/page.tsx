@@ -41,6 +41,27 @@ const challenges: Record<string, string[]> = {
     "No defined grading criteria — individual staff made inconsistent sellable/unsellable calls on the same SKU type.",
     "Returns processed in the same area as inbound receipts, creating congestion and cross-contamination of inventory.",
   ],
+  "wholesale-erp-misfit-rescue": [
+    "An enterprise ERP, configured for large-format retail, could not support the tiered B2B pricing structure the business had used with 900+ restaurant and grocery clients for over 15 years.",
+    "The migration destroyed critical soft knowledge — per-client special delivery instructions, multilingual product names, and handshake credit terms that existed only in staff memory and legacy spreadsheets.",
+    "Staff required 45+ minutes per customer invoice to correct pricing manually, producing 400+ errors monthly and triggering complaints from long-standing accounts.",
+  ],
+  "wholesale-b2b-pricing-recovery": [
+    "A platform migration moved 650+ customer-specific price lists into a new system that did not support multi-tier B2B pricing — every account defaulted to the same base price list.",
+    "The customer portal was live and showing wrong prices to restaurant buyers who had negotiated volume discounts and contract rates years earlier.",
+    "Four staff members spent an average of 3.5 hours daily correcting invoices after the fact, creating a backlog that was growing faster than it could be cleared.",
+  ],
+  "wholesale-systems-integration": [
+    "Orders placed via Shopify B2B required manual re-entry into the ERP for inventory and fulfilment, then a third manual entry into Xero for invoicing — each step introducing errors and delay.",
+    "No system had real-time visibility of inventory: a Shopify order could be accepted for a product the ERP showed as out of stock, discovered only at pick time.",
+    "Accounting reconciliation was a monthly exercise requiring two full days of staff time to match Shopify sales, ERP fulfilment records, and Xero invoices.",
+  ],
+  "wholesale-erp-upgrade-failure-rescue": [
+    "The implementation partner executed a hard cutover with no parallel-run period — the legacy system was decommissioned before the new ERP was validated under live order volumes, leaving no fallback when failures emerged on day one.",
+    "An incomplete data migration left 2,800 customer accounts, 950+ product records, and all B2B pricing tiers either missing or corrupted in the new system — staff could not look up, create, or ship a single order.",
+    "Training had been delivered in a single session six weeks before go-live. With no recent practice and a broken system on screen, staff had no path to resume operations while the technical team attempted triage.",
+    "The implementation partner withdrew on day two, citing scope disputes, leaving the business without vendor support at the moment of maximum operational crisis.",
+  ],
 };
 
 const solutions: Record<string, string[]> = {
@@ -79,6 +100,30 @@ const solutions: Record<string, string[]> = {
     "Created a grading decision matrix with 12 product categories and explicit sellable/unsellable criteria per condition code.",
     "Implemented a 48-hour processing SLA with daily throughput tracking visible to the operations manager.",
     "Established a liquidation channel for Grade B stock, converting previously written-off inventory into recovery revenue.",
+  ],
+  "wholesale-erp-misfit-rescue": [
+    "Ran a 3-week structured diagnostic separating the system problem from the business problem — establishing which failures were configuration errors versus fundamental architecture mismatches.",
+    "Produced a root-cause report recommending replacement with a mid-market ERP designed for B2B wholesale, supported by a vendor shortlist with a 30-day evaluation plan.",
+    "Managed data migration with a soft-knowledge capture phase: structured interviews with senior staff to document per-client pricing tiers, delivery exceptions, and product naming conventions before any data was moved.",
+    "Implemented the replacement system in two parallel tracks — core transaction processing live in week 7, B2B pricing configuration completed in week 11, with zero migration losses.",
+  ],
+  "wholesale-b2b-pricing-recovery": [
+    "Conducted a pricing architecture audit of the new system — documenting its pricing engine capabilities against the 14 distinct pricing tiers the business was actually using.",
+    "Rebuilt the B2B pricing configuration within the existing system using customer groups, price list inheritance, and contract-level overrides, avoiding the cost and risk of a replacement.",
+    "Designed a pricing validation script that cross-checked every customer account's effective rate against their legacy contract terms, catching 23 additional discrepancies the manual process had missed.",
+    "Delivered staff training on the new pricing model structure so the sales team could self-manage future account additions and rate changes without consultant support.",
+  ],
+  "wholesale-systems-integration": [
+    "Mapped the full order-to-cash data flow across all three systems before writing a single line of integration code — identifying 11 data transformation points where errors were being silently introduced.",
+    "Built a middleware integration layer using webhooks and scheduled sync jobs connecting Shopify B2B → ERP for order handoff and inventory reservation, and ERP → Xero for automated invoice generation.",
+    "Implemented a real-time inventory availability check at the Shopify checkout step, preventing orders from being accepted for out-of-stock SKUs.",
+    "Deployed a daily reconciliation report comparing all three systems automatically, surfacing any discrepancies within 24 hours rather than at month-end.",
+  ],
+  "wholesale-erp-upgrade-failure-rescue": [
+    "Arrived on-site on day three and ran a rapid triage: separated which order types could be processed manually in the interim from those requiring the new system, and restored emergency read-only access to the legacy database to unblock the most urgent shipments.",
+    "Ran a 5-day data recovery sprint — extracted master data from the legacy system's backup, rebuilt 2,800 customer accounts, 950+ product records, and all pricing tiers in the new ERP using a structured migration script with field-level validation at every step.",
+    "Conducted a post-mortem analysis identifying seven root causes of the go-live failure: missing data validation gates, no rollback plan, single-session training, no cutover rehearsal, no hypercare staffing plan, late stakeholder sign-off, and scope creep not flagged before go-live.",
+    "Used the post-mortem findings to redesign the remaining rollout in phases: core order processing live in week two, financial reporting and advanced configuration in week three, with daily reconciliation checkpoints and dedicated on-site support for the first 30 days post-stabilisation.",
   ],
 };
 

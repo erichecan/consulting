@@ -45,6 +45,34 @@ export const cases = [
     client: "Fashion E-Commerce Platform",
     tags: ["Returns Management", "E-Commerce", "Operations"],
   },
+  {
+    slug: "wholesale-erp-misfit-rescue",
+    industry: "Wholesale & Distribution",
+    solution: "ERP & Systems Advisory",
+    client: "Great Lakes Specialty Foods Ltd.",
+    tags: ["ERP Advisory", "Wholesale", "Systems Rescue"],
+  },
+  {
+    slug: "wholesale-b2b-pricing-recovery",
+    industry: "Wholesale & Distribution",
+    solution: "ERP & Systems Advisory",
+    client: "Pacific Gateway Food Distributors Inc.",
+    tags: ["ERP Advisory", "Wholesale", "Pricing Recovery"],
+  },
+  {
+    slug: "wholesale-systems-integration",
+    industry: "Wholesale & Distribution",
+    solution: "ERP & Systems Advisory",
+    client: "Trident Import & Distribution Ltd.",
+    tags: ["Systems Integration", "Wholesale", "ERP Advisory"],
+  },
+  {
+    slug: "wholesale-erp-upgrade-failure-rescue",
+    industry: "Wholesale & Distribution",
+    solution: "ERP & Systems Advisory",
+    client: "Lakeshore Food Group Inc.",
+    tags: ["ERP Advisory", "Wholesale", "Upgrade Recovery"],
+  },
 ];
 
 export default async function CasesPage() {
