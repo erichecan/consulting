@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ERP Upgrade Guide — Meridian Advisory</title>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:  #1C3A2F;
+      --gold:    #C9A84C;
+      --dark:    #111827;
+      --slate:   #6B7280;
+      --border:  #E5E7EB;
+      --muted:   #F9FAFB;
+      --white:   #FFFFFF;
+      --red:     #DC2626;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 11pt;
+      line-height: 1.65;
+      color: var(--dark);
+      background: var(--white);
+    }
+
+    /* ── Print layout ── */
+    @page { size: letter; margin: 0; }
+
+    @media print {
+      .page { page-break-after: always; }
+      .page:last-child { page-break-after: avoid; }
+      a { color: inherit; text-decoration: none; }
+    }
+
+    /* ── Page shell ── */
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      margin: 0 auto 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── COVER PAGE ── */
+    .cover {
+      background: var(--forest);
+      color: var(--white);
+      justify-content: space-between;
+      padding: 0;
+    }
+
+    .cover-top {
+      padding: 0.55in 0.65in 0;
+    }
+
+    .cover-logo {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .cover-body {
+      padding: 0 0.65in;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cover-eyebrow {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .cover-headline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 32pt;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      max-width: 6.5in;
+      margin-bottom: 28px;
+    }
+
+    .cover-sub {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13pt;
+      color: rgba(255,255,255,0.72);
+      max-width: 5.5in;
+      line-height: 1.55;
+    }
+
+    .cover-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 48px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .cover-stat {
+      padding: 24px 32px;
+      background: var(--forest);
+    }
+
+    .cover-stat-val {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 26pt;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .cover-stat-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8.5pt;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.05em;
+    }
+
+    .cover-footer {
+      padding: 24px 0.65in;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cover-footer-left {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8.5pt;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .cover-footer-right {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8.5pt;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ── INTERIOR PAGES ── */
+    .interior {
+      padding: 0.6in 0.65in;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--forest);
+      margin-bottom: 36px;
+    }
+
+    .page-header-logo {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9.5pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--forest);
+    }
+
+    .page-header-section {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8pt;
+      color: var(--slate);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .section-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    h1.page-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 22pt;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--forest);
+      margin-bottom: 28px;
+    }
+
+    h2.section-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 14pt;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--forest);
+      margin-bottom: 12px;
+      margin-top: 32px;
+    }
+
+    h2.section-title:first-of-type { margin-top: 0; }
+
+    p {
+      margin-bottom: 12px;
+      font-size: 10.5pt;
+      color: #374151;
+    }
+
+    /* ── Pattern card (What We've Seen) ── */
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .pattern-card {
+      background: var(--muted);
+      border-left: 3px solid var(--gold);
+      padding: 16px 18px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .pattern-card-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .pattern-card-stat {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 20pt;
+      font-weight: 700;
+      color: var(--forest);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .pattern-card-desc {
+      font-size: 9pt;
+      color: var(--slate);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .quote-block {
+      background: var(--forest);
+      color: var(--white);
+      padding: 20px 24px;
+      border-radius: 4px;
+      margin: 24px 0;
+    }
+
+    .quote-text {
+      font-size: 11pt;
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+
+    .quote-attr {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8pt;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Failure reasons ── */
+    .failure-list { margin: 20px 0; }
+
+    .failure-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .failure-item:last-child { border-bottom: none; }
+
+    .failure-number {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 18pt;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.5;
+      line-height: 1;
+      min-width: 32px;
+      padding-top: 2px;
+    }
+
+    .failure-content {}
+
+    .failure-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 3px;
+    }
+
+    .failure-desc {
+      font-size: 9.5pt;
+      color: var(--slate);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ── Process steps ── */
+    .process-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .process-step {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px;
+      position: relative;
+    }
+
+    .process-step-num {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .process-step-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 8px;
+    }
+
+    .process-step-desc {
+      font-size: 9pt;
+      color: var(--slate);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .timeline-note {
+      background: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      color: var(--slate);
+    }
+
+    .timeline-note strong {
+      color: var(--dark);
+    }
+
+    /* ── Deliverables table ── */
+    .deliverables {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 9.5pt;
+    }
+
+    .deliverables th {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--forest);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    .deliverables td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: #374151;
+    }
+
+    .deliverables tr:nth-child(even) td { background: var(--muted); }
+
+    /* ── Case summaries ── */
+    .case-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .case-card-header {
+      background: var(--forest);
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .case-card-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+      max-width: 70%;
+    }
+
+    .case-card-tag {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 3px 8px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .case-card-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .case-card-col {
+      background: var(--white);
+      padding: 16px 18px;
+    }
+
+    .case-col-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 8px;
+    }
+
+    .case-col-text {
+      font-size: 9pt;
+      color: #374151;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .case-metrics {
+      display: flex;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .case-metric {
+      flex: 1;
+      background: var(--muted);
+      padding: 12px 16px;
+      text-align: center;
+    }
+
+    .case-metric-val {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16pt;
+      font-weight: 700;
+      color: var(--forest);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .case-metric-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      color: var(--slate);
+      line-height: 1.3;
+    }
+
+    /* ── FAQ ── */
+    .faq-item {
+      margin: 0 0 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-q {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .faq-q-icon {
+      color: var(--gold);
+      font-size: 12pt;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+
+    .faq-a {
+      font-size: 9.5pt;
+      color: #374151;
+      line-height: 1.6;
+      padding-left: 22px;
+      margin: 0;
+    }
+
+    /* ── CTA page ── */
+    .cta-page {
+      background: var(--forest);
+      color: var(--white);
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .cta-inner {
+      max-width: 5.5in;
+    }
+
+    .cta-eyebrow {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .cta-headline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 26pt;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .cta-sub {
+      font-size: 12pt;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .cta-offer {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: 32px 40px;
+      margin: 0 auto 36px;
+    }
+
+    .cta-offer-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .cta-offer-list {
+      list-style: none;
+      text-align: left;
+    }
+
+    .cta-offer-list li {
+      font-size: 10pt;
+      color: rgba(255,255,255,0.85);
+      padding: 6px 0;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.5;
+    }
+
+    .cta-offer-list li::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .cta-contact {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10.5pt;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+    }
+
+    .cta-contact a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .cta-logo {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 48px;
+      opacity: 0.7;
+    }
+
+    /* ── Page footer ── */
+    .page-footer {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .page-footer-text {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      color: var(--slate);
+    }
+
+    .confidential-tag {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 1: COVER                                              -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-top">
+    <div class="cover-logo">Meridian Advisory</div>
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-eyebrow">For Canadian Wholesale Distributors</div>
+    <h1 class="cover-headline">Your ERP Upgrade<br>Will Probably Fail.<br>Here's How to Make<br>Sure It Doesn't.</h1>
+    <p class="cover-sub">What goes wrong, why it keeps happening, and the exact intervention model that has turned around failed upgrades for wholesale distributors across Ontario and BC.</p>
+
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <div class="cover-stat-val">7 in 10</div>
+        <div class="cover-stat-label">ERP implementations run over budget or timeline</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-val">$340K</div>
+        <div class="cover-stat-label">Average cost of a failed mid-market ERP go-live</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-val">90 days</div>
+        <div class="cover-stat-label">Typical window before a failed upgrade becomes a crisis</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-footer-left">Meridian Advisory · Wholesale &amp; Distribution Practice · 2025</div>
+    <div class="cover-footer-right">meridianadvisory.ca</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 2–3: WHAT WE'VE SEEN                                 -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-logo">Meridian Advisory</div>
+    <div class="page-header-section">What We've Seen</div>
+  </div>
+
+  <div class="section-label">Section 01</div>
+  <h1 class="page-title">The Patterns We See in Every Failed Wholesale ERP Project</h1>
+
+  <p>Over the past several years, we have been called into wholesale distribution businesses at every stage of an ERP project — before selection, mid-implementation, and after a go-live collapse. Across Ontario, BC, and Alberta, the problems are rarely unique. The same failures appear in different companies, with different systems, sold by different vendors.</p>
+
+  <p>These are not anecdotes. They are patterns.</p>
+
+  <div class="pattern-grid">
+    <div class="pattern-card">
+      <div class="pattern-card-label">Data Migration</div>
+      <div class="pattern-card-stat">68%</div>
+      <p class="pattern-card-desc">of go-live failures we've investigated had incomplete or unchecked data migration as a contributing cause. Customer records, pricing tiers, and product specs were assumed to have transferred correctly — and were not.</p>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-card-label">Training Timing</div>
+      <div class="pattern-card-stat">6 wks</div>
+      <p class="pattern-card-desc">Average gap between staff training and go-live in failed projects we've seen. By the time the new system is live, staff have forgotten the workflows. One session, months earlier, is not training.</p>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-card-label">B2B Pricing Loss</div>
+      <div class="pattern-card-stat">400+</div>
+      <p class="pattern-card-desc">Monthly order errors generated at one Mississauga food wholesaler after their new ERP could not support the tiered B2B pricing structure they had used with 900+ clients for 15 years.</p>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-card-label">Rollback Plans</div>
+      <div class="pattern-card-stat">0</div>
+      <p class="pattern-card-desc">In the majority of failed go-lives we've assessed, there was no documented rollback plan. When the cutover fails, businesses have no path back — and no path forward until someone builds one under pressure.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">What a Failed Go-Live Actually Looks Like</h2>
+
+  <p>The failure is rarely dramatic on paper. The implementation partner reports that the system is ready. The project manager signs off. The cutover happens on a Friday night. By Monday morning, staff cannot look up a customer, cannot process an order, and cannot reach anyone from the vendor.</p>
+
+  <p>In one engagement — a food distribution business in Hamilton with 2,800 active customer accounts — the ERP cutover left every customer record either missing or corrupted in the new system. Order processing halted for 72 hours. The implementation partner withdrew, citing scope disputes, on the second day of the crisis. The business had no legacy system to revert to, and no one internally who understood the new system well enough to begin recovery.</p>
+
+  <div class="quote-block">
+    <p class="quote-text">"We were told the system was ready. We had no reason to think it wasn't. On Monday morning we couldn't ship a single order. By Wednesday we still couldn't. The vendor's project manager stopped answering the phone."</p>
+    <div class="quote-attr">— Operations Director, Food Wholesale Distributor, Ontario (client identity withheld)</div>
+  </div>
+
+  <h2 class="section-title">The Common Thread: Misaligned Incentives</h2>
+
+  <p>ERP implementation partners are paid to deploy the software. They are not paid for what happens after. Their incentive is to reach go-live, close the project, and move on. Your incentive is for the business to work correctly on day one. These are not the same incentive.</p>
+
+  <p>This misalignment is not a character flaw — it is a structural problem in how most ERP projects are contracted. The fix is not to find a better vendor. It is to have an independent party whose only job is to make sure your business is protected before, during, and after cutover.</p>
+
+  <div class="page-footer">
+    <div class="page-footer-text">Meridian Advisory · ERP Upgrade Guide · 2025</div>
+    <div class="confidential-tag">Confidential</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 4: WHY MOST UPGRADES FAIL                            -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-logo">Meridian Advisory</div>
+    <div class="page-header-section">Why Upgrades Fail</div>
+  </div>
+
+  <div class="section-label">Section 02</div>
+  <h1 class="page-title">The Seven Root Causes of a Failed ERP Upgrade</h1>
+
+  <p>When we conduct a post-mortem on a failed ERP project, we consistently find the same seven conditions. They are rarely present alone — usually four or five overlap, which is why the failure feels total rather than fixable.</p>
+
+  <div class="failure-list">
+    <div class="failure-item">
+      <div class="failure-number">01</div>
+      <div class="failure-content">
+        <div class="failure-title">Hard cutover with no parallel-run period</div>
+        <p class="failure-desc">The legacy system is decommissioned the moment the new system goes live. There is no period where both run simultaneously for validation. When something breaks — and something always breaks — there is nowhere to go.</p>
+      </div>
+    </div>
+    <div class="failure-item">
+      <div class="failure-number">02</div>
+      <div class="failure-content">
+        <div class="failure-title">Data migration not validated before cutover</div>
+        <p class="failure-desc">Data is migrated and assumed to be correct. Customer accounts, product master records, and pricing configurations are not reconciled against the source system. Errors surface only under live order volumes.</p>
+      </div>
+    </div>
+    <div class="failure-item">
+      <div class="failure-number">03</div>
+      <div class="failure-content">
+        <div class="failure-title">"Soft knowledge" not captured before migration</div>
+        <p class="failure-desc">Per-client delivery exceptions, handshake credit terms, multilingual product names, and 15 years of account-level special arrangements exist only in staff memory and legacy spreadsheets. None of it makes it into the new system.</p>
+      </div>
+    </div>
+    <div class="failure-item">
+      <div class="failure-number">04</div>
+      <div class="failure-content">
+        <div class="failure-title">Training done once, too early</div>
+        <p class="failure-desc">Staff are trained weeks or months before go-live in a classroom setting. By the time the system is live, they have no hands-on recall. There is no refresher. There is no on-site support during the first week of operation.</p>
+      </div>
+    </div>
+    <div class="failure-item">
+      <div class="failure-number">05</div>
+      <div class="failure-content">
+        <div class="failure-title">No rollback plan</div>
+        <p class="failure-desc">No one defines what "failure" looks like, and no one documents what the business would do if the go-live does not succeed. When failure occurs, decisions are made in panic rather than from a prepared playbook.</p>
+      </div>
+    </div>
+    <div class="failure-item">
+      <div class="failure-number">06</div>
+      <div class="failure-content">
+        <div class="failure-title">Scope creep not caught before go-live</div>
+        <p class="failure-desc">Requirements added during the project are absorbed by the implementation team without formal scope changes or timeline adjustments. The project arrives at go-live date with configuration that has never been fully tested.</p>
+      </div>
+    </div>
+    <div class="failure-item">
+      <div class="failure-number">07</div>
+      <div class="failure-content">
+        <div class="failure-title">Go-live timed to vendor schedule, not business calendar</div>
+        <p class="failure-desc">The cutover is scheduled when the implementation partner's project slots allow, not when it is safest for the business — often landing during peak order periods, month-end close, or key customer billing cycles.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-text">Meridian Advisory · ERP Upgrade Guide · 2025</div>
+    <div class="confidential-tag">Confidential</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 5: HOW WE INTERVENE                                  -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-logo">Meridian Advisory</div>
+    <div class="page-header-section">Our Intervention Model</div>
+  </div>
+
+  <div class="section-label">Section 03</div>
+  <h1 class="page-title">How We Work: Three Entry Points, One Standard</h1>
+
+  <p>We enter ERP projects at three different points depending on where the client is when they call us. The work is different at each stage — but the standard is the same: your business needs to work correctly, and we are not done until it does.</p>
+
+  <div class="process-row">
+    <div class="process-step">
+      <div class="process-step-num">Entry Point A</div>
+      <div class="process-step-title">Before You Select</div>
+      <p class="process-step-desc">We define your actual requirements — not a vendor's feature checklist — and run a structured evaluation to match you with a system your business can actually operate.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">Entry Point B</div>
+      <div class="process-step-title">During Implementation</div>
+      <p class="process-step-desc">We act as your independent oversight layer: validating data migration, reviewing configuration decisions, designing the cutover plan, and preparing staff before go-live day.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">Entry Point C</div>
+      <div class="process-step-title">After a Failed Go-Live</div>
+      <p class="process-step-desc">We triage immediately, stabilise operations, recover what can be recovered, identify the root causes, and complete the upgrade the original team could not — with a phased plan that reduces risk at every step.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">What a Typical Engagement Looks Like</h2>
+
+  <table class="deliverables">
+    <thead>
+      <tr>
+        <th>Phase</th>
+        <th>Timeline</th>
+        <th>What We Deliver</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Diagnostic</strong></td>
+        <td>Weeks 1–2</td>
+        <td>Root-cause report separating system problems from process problems; written findings with prioritised recommendations</td>
+      </tr>
+      <tr>
+        <td><strong>Stabilisation</strong></td>
+        <td>Weeks 2–3</td>
+        <td>Interim operating procedures; emergency data recovery if required; daily management checkpoint</td>
+      </tr>
+      <tr>
+        <td><strong>Recovery / Completion</strong></td>
+        <td>Weeks 3–11</td>
+        <td>Phased go-live plan; data migration with field-level validation; staff training immediately before go-live; on-site hypercare support</td>
+      </tr>
+      <tr>
+        <td><strong>Handover</strong></td>
+        <td>Week 11–12</td>
+        <td>Documented operating procedures; post-mortem for future reference; 30-day post-handover availability</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="timeline-note">
+    <strong>Fixed-scope, fixed-fee.</strong> We quote a defined scope before we start. If the project grows, we tell you before we absorb the cost. You will not receive a surprise invoice at the end.
+  </div>
+
+  <h2 class="section-title">What We Don't Do</h2>
+
+  <p>We are not an ERP reseller. We do not receive commissions from software vendors. We do not have a preferred system we are trying to place with every client. Our recommendation is based on your business requirements — not on which vendor pays us more.</p>
+
+  <p>We also do not write reports that sit on a shelf. Every engagement ends with something operational: a working system, a validated configuration, or a documented plan that your internal team can execute without us.</p>
+
+  <div class="page-footer">
+    <div class="page-footer-text">Meridian Advisory · ERP Upgrade Guide · 2025</div>
+    <div class="confidential-tag">Confidential</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 6: CASE SUMMARIES                                    -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-logo">Meridian Advisory</div>
+    <div class="page-header-section">Case Summaries</div>
+  </div>
+
+  <div class="section-label">Section 04</div>
+  <h1 class="page-title">What This Looks Like in Practice</h1>
+
+  <p>The following are summaries of three engagements with Canadian wholesale distributors. Client names and identifying details have been changed.</p>
+
+  <!-- Case 1 -->
+  <div class="case-card">
+    <div class="case-card-header">
+      <div class="case-card-title">Failed ERP Go-Live Stabilised and Completed After Implementation Partner Withdrew</div>
+      <div class="case-card-tag">Ontario · Food Wholesale</div>
+    </div>
+    <div class="case-card-body">
+      <div class="case-card-col">
+        <div class="case-col-label">The Situation</div>
+        <p class="case-col-text">A food wholesaler's ERP cutover left 2,800 customer records unreadable. Order processing stopped for 72 hours. The implementation partner withdrew on day two.</p>
+      </div>
+      <div class="case-card-col">
+        <div class="case-col-label">What We Did</div>
+        <p class="case-col-text">Arrived day three. Restored emergency legacy access. Ran a 5-day data recovery sprint. Identified 7 root causes. Completed the upgrade in a phased plan over 18 days.</p>
+      </div>
+      <div class="case-card-col">
+        <div class="case-col-label">Result</div>
+        <p class="case-col-text">Operations fully restored. All 2,800+ customer records recovered. System stable before peak season. Staff retrained with on-site support for 30 days post-go-live.</p>
+      </div>
+    </div>
+    <div class="case-metrics">
+      <div class="case-metric">
+        <div class="case-metric-val">72hrs</div>
+        <div class="case-metric-label">Order processing restored</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">2,800+</div>
+        <div class="case-metric-label">Customer records recovered</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">18d</div>
+        <div class="case-metric-label">Full system stable</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case 2 -->
+  <div class="case-card">
+    <div class="case-card-header">
+      <div class="case-card-title">Wrong ERP Selected and Replaced — 400+ Monthly Order Errors Eliminated</div>
+      <div class="case-card-tag">Ontario · Food Wholesale</div>
+    </div>
+    <div class="case-card-body">
+      <div class="case-card-col">
+        <div class="case-col-label">The Situation</div>
+        <p class="case-col-text">A wholesaler with 1,200+ SKUs was sold an enterprise retail ERP built for chains ten times their size. The system could not support their B2B pricing structure, producing 400+ errors monthly.</p>
+      </div>
+      <div class="case-card-col">
+        <div class="case-col-label">What We Did</div>
+        <p class="case-col-text">Ran a 3-week diagnostic. Produced a root-cause report with vendor shortlist. Managed data migration with a soft-knowledge capture phase before any data moved.</p>
+      </div>
+      <div class="case-card-col">
+        <div class="case-col-label">Result</div>
+        <p class="case-col-text">Right-sized replacement live in 11 weeks. B2B pricing accuracy restored to 92%. Zero data losses. Long-standing client accounts retained throughout transition.</p>
+      </div>
+    </div>
+    <div class="case-metrics">
+      <div class="case-metric">
+        <div class="case-metric-val">400+</div>
+        <div class="case-metric-label">Monthly errors eliminated</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">92%</div>
+        <div class="case-metric-label">Pricing accuracy restored</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">11wks</div>
+        <div class="case-metric-label">Replacement live</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case 3 -->
+  <div class="case-card">
+    <div class="case-card-header">
+      <div class="case-card-title">B2B Pricing Engine Rebuilt After Migration — Invoice Disputes Down 94%</div>
+      <div class="case-card-tag">BC · Food Distribution</div>
+    </div>
+    <div class="case-card-body">
+      <div class="case-card-col">
+        <div class="case-col-label">The Situation</div>
+        <p class="case-col-text">After a platform migration, 650+ restaurant accounts were seeing wrong prices. Staff were manually correcting 80+ invoices daily. The backlog was growing faster than it was being cleared.</p>
+      </div>
+      <div class="case-card-col">
+        <div class="case-col-label">What We Did</div>
+        <p class="case-col-text">Audited the new system's pricing architecture. Rebuilt pricing configuration within the existing platform — no system replacement required. Validated every account against legacy contract terms.</p>
+      </div>
+      <div class="case-card-col">
+        <div class="case-col-label">Result</div>
+        <p class="case-col-text">Invoice disputes down 94% in six weeks. Manual correction eliminated. Staff trained to self-manage future account and rate changes without consultant dependency.</p>
+      </div>
+    </div>
+    <div class="case-metrics">
+      <div class="case-metric">
+        <div class="case-metric-val">94%</div>
+        <div class="case-metric-label">Invoice dispute reduction</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">80+</div>
+        <div class="case-metric-label">Daily corrections eliminated</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">6wks</div>
+        <div class="case-metric-label">Full pricing accuracy</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-text">Meridian Advisory · ERP Upgrade Guide · 2025</div>
+    <div class="confidential-tag">Confidential</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 7: FAQ                                               -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-logo">Meridian Advisory</div>
+    <div class="page-header-section">Common Questions</div>
+  </div>
+
+  <div class="section-label">Section 05</div>
+  <h1 class="page-title">Questions We Are Usually Asked</h1>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-icon">Q</span> Our ERP vendor says everything is on track. Do we really need an independent advisor?</div>
+    <p class="faq-a">Your vendor is paid to complete the implementation. Their definition of "on track" is whether they will hit their contractual go-live date — not whether your business will work correctly afterwards. An independent advisor has no stake in the vendor's timeline. Our only stake is your outcome.</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-icon">Q</span> We already went live and it failed. Is it too late to call you?</div>
+    <p class="faq-a">No — this is actually when we do some of our most focused work. The first 72 hours after a failed go-live are the highest-leverage period. The faster we can triage, the more options you have. We have been called in on day three of a crisis and stabilised operations within a week. Call as soon as you know something is wrong.</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-icon">Q</span> Can you tell us whether our chosen ERP is the right one before we sign a contract?</div>
+    <p class="faq-a">Yes — and this is the highest-ROI engagement we offer. A 2–3 week selection assessment, conducted before you sign, costs a fraction of what a wrong selection costs to unwind. We produce a written recommendation with the reasoning, and we have no commercial relationship with any ERP vendor, so the advice is independent.</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-icon">Q</span> How do we know your case study results are real?</div>
+    <p class="faq-a">We can arrange a reference conversation with a past client on request. We also provide a written scope of work before every engagement that defines exactly what we will deliver — so you have a basis for evaluating whether we delivered it.</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-icon">Q</span> We have an internal IT team. What do you add that they can't do?</div>
+    <p class="faq-a">Your internal IT team knows your systems. We know what goes wrong in ERP projects across dozens of wholesale businesses — and we have the documented playbooks, data validation frameworks, and vendor negotiation experience that comes from having seen the same failures many times. These are complementary, not competing.</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-icon">Q</span> What does this cost?</div>
+    <p class="faq-a">Engagements are scoped and priced individually based on the size of the business, the complexity of the situation, and how much work has already been done. A diagnostic engagement typically runs 2–3 weeks. We provide a fixed-fee quote before we start. We do not charge by the hour for implementation work — you will know the total cost before any work begins.</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-icon">Q</span> Are you familiar with [specific ERP system]?</div>
+    <p class="faq-a">We work across the mid-market ERP landscape — including systems commonly used by Canadian wholesale distributors. Our diagnostic methodology is system-agnostic: we assess configuration, data, and process regardless of which platform is involved. The first conversation will tell us quickly whether we are the right fit for your specific situation.</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-text">Meridian Advisory · ERP Upgrade Guide · 2025</div>
+    <div class="confidential-tag">Confidential</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 8: CTA                                               -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page cta-page">
+  <div class="cta-inner">
+    <div class="cta-eyebrow">Next Step</div>
+    <h2 class="cta-headline">Book a 30-Minute<br>Diagnostic Call</h2>
+    <p class="cta-sub">No sales pitch. No commitment. We ask you eight questions about your current situation, and we tell you honestly whether we think you have a problem that warrants independent support.</p>
+
+    <div class="cta-offer">
+      <div class="cta-offer-title">In 30 minutes, you'll know:</div>
+      <ul class="cta-offer-list">
+        <li>Whether your current ERP project has the conditions we associate with go-live failures</li>
+        <li>Which of the seven root causes, if any, are present in your situation</li>
+        <li>What an independent advisory engagement would look like for your specific case</li>
+        <li>Whether you need us at all — and if not, we'll tell you that too</li>
+      </ul>
+    </div>
+
+    <div class="cta-contact">
+      <strong style="color: rgba(255,255,255,0.85); display:block; margin-bottom:8px;">Meridian Advisory — Wholesale &amp; Distribution Practice</strong>
+      contact@meridianadvisory.ca<br>
+      meridianadvisory.ca/contact
+    </div>
+
+    <div class="cta-logo">Meridian Advisory</div>
+  </div>
+</div>
+
+</body>
+</html>
