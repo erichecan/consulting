@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ERP Upgrade Guide — Meridian Advisory (EN/中)</title>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:  #1C3A2F;
+      --gold:    #C9A84C;
+      --dark:    #111827;
+      --slate:   #6B7280;
+      --border:  #E5E7EB;
+      --muted:   #F9FAFB;
+      --white:   #FFFFFF;
+      --red:     #DC2626;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 11pt;
+      line-height: 1.65;
+      color: var(--dark);
+      background: var(--white);
+    }
+
+    /* ── Print layout ── */
+    @page { size: letter; margin: 0; }
+
+    @media print {
+      .page { page-break-after: always; }
+      .page:last-child { page-break-after: avoid; }
+      a { color: inherit; text-decoration: none; }
+    }
+
+    /* ── Page shell ── */
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      margin: 0 auto 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Bilingual helpers ── */
+    .zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', 'Hiragino Sans GB', sans-serif;
+    }
+
+    .bi-row {
+      display: flex;
+      gap: 0;
+      flex-direction: column;
+    }
+
+    .bi-en {}
+    .bi-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', 'Hiragino Sans GB', sans-serif;
+      opacity: 0.78;
+      margin-top: 2px;
+    }
+
+    .bi-divider {
+      height: 1px;
+      background: rgba(0,0,0,0.08);
+      margin: 8px 0;
+    }
+
+    .bi-divider-light {
+      height: 1px;
+      background: rgba(255,255,255,0.15);
+      margin: 8px 0;
+    }
+
+    /* ── COVER PAGE ── */
+    .cover {
+      background: var(--forest);
+      color: var(--white);
+      justify-content: space-between;
+      padding: 0;
+    }
+
+    .cover-top {
+      padding: 0.55in 0.65in 0;
+    }
+
+    .cover-logo {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .cover-body {
+      padding: 0 0.65in;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cover-eyebrow {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8.5pt;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .cover-eyebrow-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 8pt;
+      letter-spacing: 0.08em;
+      color: rgba(201,168,76,0.8);
+      margin-bottom: 18px;
+    }
+
+    .cover-headline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 26pt;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      max-width: 6.5in;
+      margin-bottom: 10px;
+    }
+
+    .cover-headline-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 18pt;
+      font-weight: 700;
+      line-height: 1.25;
+      color: rgba(255,255,255,0.82);
+      max-width: 6in;
+      margin-bottom: 20px;
+    }
+
+    .cover-sub {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11.5pt;
+      color: rgba(255,255,255,0.68);
+      max-width: 5.5in;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .cover-sub-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 10pt;
+      color: rgba(255,255,255,0.58);
+      max-width: 5.5in;
+      line-height: 1.6;
+    }
+
+    .cover-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 36px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .cover-stat {
+      padding: 20px 24px;
+      background: var(--forest);
+    }
+
+    .cover-stat-val {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 24pt;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .cover-stat-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8pt;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    .cover-stat-label-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 7.5pt;
+      color: rgba(255,255,255,0.38);
+      line-height: 1.4;
+    }
+
+    .cover-footer {
+      padding: 20px 0.65in;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cover-footer-left {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8pt;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .cover-footer-right {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8pt;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── INTERIOR PAGES ── */
+    .interior {
+      padding: 0.45in 0.65in;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--forest);
+      margin-bottom: 28px;
+    }
+
+    .page-header-logo {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--forest);
+    }
+
+    .page-header-section {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      color: var(--slate);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .section-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    h1.page-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 18pt;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--forest);
+      margin-bottom: 6px;
+    }
+
+    h1.page-title .zh-title {
+      display: block;
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 13pt;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: rgba(28,58,47,0.7);
+      margin-top: 4px;
+      margin-bottom: 20px;
+    }
+
+    h2.section-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12pt;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--forest);
+      margin-bottom: 4px;
+      margin-top: 24px;
+    }
+
+    h2.section-title:first-of-type { margin-top: 0; }
+
+    h2.section-title .zh-title {
+      display: block;
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 10pt;
+      font-weight: 600;
+      letter-spacing: 0;
+      color: rgba(28,58,47,0.65);
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 8px;
+      font-size: 9.5pt;
+      color: #374151;
+      line-height: 1.6;
+    }
+
+    p.zh-p {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 9pt;
+      color: #6B7280;
+      margin-bottom: 12px;
+      border-left: 2px solid rgba(201,168,76,0.3);
+      padding-left: 8px;
+      line-height: 1.7;
+    }
+
+    /* ── Pattern card ── */
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .pattern-card {
+      background: var(--muted);
+      border-left: 3px solid var(--gold);
+      padding: 12px 14px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .pattern-card-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+
+    .pattern-card-label-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 7pt;
+      color: rgba(201,168,76,0.75);
+      margin-bottom: 4px;
+    }
+
+    .pattern-card-stat {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 18pt;
+      font-weight: 700;
+      color: var(--forest);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .pattern-card-desc {
+      font-size: 8.5pt;
+      color: var(--slate);
+      line-height: 1.45;
+      margin: 0 0 0;
+    }
+
+    .pattern-card-desc-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 8pt;
+      color: rgba(107,114,128,0.85);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .quote-block {
+      background: var(--forest);
+      color: var(--white);
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin: 16px 0;
+    }
+
+    .quote-text {
+      font-size: 10pt;
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.5;
+      margin-bottom: 4px;
+    }
+
+    .quote-text-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 9.5pt;
+      font-style: normal;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .quote-attr {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+    }
+
+    .quote-attr-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 7.5pt;
+      color: rgba(201,168,76,0.75);
+    }
+
+    /* ── Failure reasons ── */
+    .failure-list { margin: 16px 0; }
+
+    .failure-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .failure-item:last-child { border-bottom: none; }
+
+    .failure-number {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16pt;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.5;
+      line-height: 1;
+      min-width: 30px;
+      padding-top: 2px;
+    }
+
+    .failure-content {}
+
+    .failure-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1px;
+    }
+
+    .failure-title-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 9pt;
+      font-weight: 600;
+      color: rgba(17,24,39,0.65);
+      margin-bottom: 3px;
+    }
+
+    .failure-desc {
+      font-size: 8.5pt;
+      color: var(--slate);
+      margin: 0 0 3px;
+      line-height: 1.45;
+    }
+
+    .failure-desc-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 8pt;
+      color: rgba(107,114,128,0.85);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ── Process steps ── */
+    .process-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .process-step {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px;
+      position: relative;
+    }
+
+    .process-step-num {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .process-step-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 2px;
+    }
+
+    .process-step-title-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 9pt;
+      font-weight: 600;
+      color: rgba(28,58,47,0.7);
+      margin-bottom: 6px;
+    }
+
+    .process-step-desc {
+      font-size: 8.5pt;
+      color: var(--slate);
+      line-height: 1.45;
+      margin: 0 0 4px;
+    }
+
+    .process-step-desc-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 8pt;
+      color: rgba(107,114,128,0.85);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .timeline-note {
+      background: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 12px 16px;
+      margin: 12px 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8.5pt;
+      color: var(--slate);
+    }
+
+    .timeline-note strong {
+      color: var(--dark);
+    }
+
+    .timeline-note-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 8pt;
+      color: rgba(107,114,128,0.85);
+      margin-top: 4px;
+    }
+
+    /* ── Deliverables table ── */
+    .deliverables {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 8.5pt;
+    }
+
+    .deliverables th {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--forest);
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    .deliverables th .zh {
+      display: block;
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 7pt;
+      text-transform: none;
+      letter-spacing: 0;
+      opacity: 0.72;
+      font-weight: 500;
+    }
+
+    .deliverables td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+      color: #374151;
+      vertical-align: top;
+    }
+
+    .deliverables td .zh-td {
+      display: block;
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 7.5pt;
+      color: var(--slate);
+      margin-top: 2px;
+      line-height: 1.45;
+    }
+
+    .deliverables tr:nth-child(even) td { background: var(--muted); }
+
+    /* ── Case summaries ── */
+    .case-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 14px 0;
+    }
+
+    .case-card-header {
+      background: var(--forest);
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .case-card-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+      max-width: 65%;
+    }
+
+    .case-card-title .zh {
+      display: block;
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 9pt;
+      font-weight: 600;
+      color: rgba(255,255,255,0.72);
+      margin-top: 3px;
+    }
+
+    .case-card-tag {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 2px 7px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .case-card-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .case-card-col {
+      background: var(--white);
+      padding: 12px 14px;
+    }
+
+    .case-col-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 2px;
+    }
+
+    .case-col-label-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 7pt;
+      color: rgba(107,114,128,0.75);
+      margin-bottom: 6px;
+    }
+
+    .case-col-text {
+      font-size: 8.5pt;
+      color: #374151;
+      line-height: 1.45;
+      margin: 0 0 4px;
+    }
+
+    .case-col-text-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 8pt;
+      color: var(--slate);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .case-metrics {
+      display: flex;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .case-metric {
+      flex: 1;
+      background: var(--muted);
+      padding: 10px 14px;
+      text-align: center;
+    }
+
+    .case-metric-val {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 14pt;
+      font-weight: 700;
+      color: var(--forest);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+
+    .case-metric-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7pt;
+      color: var(--slate);
+      line-height: 1.3;
+      margin-bottom: 1px;
+    }
+
+    .case-metric-label-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 6.5pt;
+      color: rgba(107,114,128,0.75);
+      line-height: 1.3;
+    }
+
+    /* ── FAQ ── */
+    .faq-item {
+      margin: 0 0 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-q {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 2px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .faq-q-icon {
+      color: var(--gold);
+      font-size: 11pt;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+
+    .faq-q-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 9pt;
+      font-weight: 600;
+      color: rgba(17,24,39,0.65);
+      margin-bottom: 5px;
+      padding-left: 19px;
+    }
+
+    .faq-a {
+      font-size: 8.5pt;
+      color: #374151;
+      line-height: 1.55;
+      padding-left: 19px;
+      margin: 0 0 3px;
+    }
+
+    .faq-a-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 8pt;
+      color: var(--slate);
+      line-height: 1.6;
+      padding-left: 19px;
+      margin: 0;
+    }
+
+    /* ── CTA page ── */
+    .cta-page {
+      background: var(--forest);
+      color: var(--white);
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .cta-inner {
+      max-width: 5.5in;
+    }
+
+    .cta-eyebrow {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 8.5pt;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .cta-eyebrow-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 8pt;
+      color: rgba(201,168,76,0.75);
+      margin-bottom: 18px;
+    }
+
+    .cta-headline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 22pt;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .cta-headline-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 16pt;
+      font-weight: 700;
+      line-height: 1.3;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 18px;
+    }
+
+    .cta-sub {
+      font-size: 10.5pt;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+
+    .cta-sub-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 9.5pt;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .cta-offer {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: 24px 32px;
+      margin: 0 auto 28px;
+    }
+
+    .cta-offer-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    .cta-offer-title-zh {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      font-size: 9pt;
+      color: rgba(201,168,76,0.75);
+      margin-bottom: 12px;
+    }
+
+    .cta-offer-list {
+      list-style: none;
+      text-align: left;
+    }
+
+    .cta-offer-list li {
+      font-size: 9pt;
+      color: rgba(255,255,255,0.82);
+      padding: 5px 0;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      line-height: 1.45;
+    }
+
+    .cta-offer-list li::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .cta-offer-list li .zh-li {
+      font-family: 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif;
+      display: block;
+      font-size: 8.5pt;
+      color: rgba(255,255,255,0.6);
+      margin-top: 1px;
+    }
+
+    .cta-contact {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9.5pt;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.8;
+    }
+
+    .cta-contact a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .cta-logo {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 36px;
+      opacity: 0.65;
+    }
+
+    /* ── Page footer ── */
+    .page-footer {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .page-footer-text {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 7pt;
+      color: var(--slate);
+    }
+
+    .confidential-tag {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 6.5pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 1: COVER                                              -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-top">
+    <div class="cover-logo">Meridian Advisory</div>
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-eyebrow">For Canadian Wholesale Distributors</div>
+    <div class="cover-eyebrow-zh">寫給加拿大批發及分銷商</div>
+
+    <h1 class="cover-headline">Your ERP Upgrade<br>Will Probably Fail.<br>Here's How to Make<br>Sure It Doesn't.</h1>
+    <div class="cover-headline-zh">你嘅ERP升級<br>好大機會會失敗。<br>以下係點樣確保<br>唔會發生喺你身上。</div>
+
+    <p class="cover-sub">What goes wrong, why it keeps happening, and the exact intervention model that has turned around failed upgrades for wholesale distributors across Ontario and BC.</p>
+    <p class="cover-sub-zh">出咩事、點解一再發生，同埋我哋用嚟扭轉安省同卑詩省批發分銷商ERP升級失敗嘅確切介入模式。</p>
+
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <div class="cover-stat-val">7 in 10</div>
+        <div class="cover-stat-label">ERP implementations run over budget or timeline</div>
+        <div class="cover-stat-label-zh">七成ERP實施超出預算或工期</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-val">$340K</div>
+        <div class="cover-stat-label">Average cost of a failed mid-market ERP go-live</div>
+        <div class="cover-stat-label-zh">中型市場ERP上線失敗的平均代價</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-val">90 days</div>
+        <div class="cover-stat-label">Typical window before a failed upgrade becomes a crisis</div>
+        <div class="cover-stat-label-zh">升級失敗演變成危機的典型時間窗口</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-footer-left">Meridian Advisory · Wholesale &amp; Distribution Practice · 批發及分銷業務 · 2025</div>
+    <div class="cover-footer-right">meridianadvisory.ca</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 2–3: WHAT WE'VE SEEN                                 -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-logo">Meridian Advisory</div>
+    <div class="page-header-section">What We've Seen · 我哋見過咩</div>
+  </div>
+
+  <div class="section-label">Section 01 · 第一節</div>
+  <h1 class="page-title">The Patterns We See in Every Failed Wholesale ERP Project<span class="zh-title">每個失敗批發ERP項目背後嘅共同規律</span></h1>
+
+  <p>Over the past several years, we have been called into wholesale distribution businesses at every stage of an ERP project — before selection, mid-implementation, and after a go-live collapse. Across Ontario, BC, and Alberta, the problems are rarely unique. The same failures appear in different companies, with different systems, sold by different vendors.</p>
+  <p class="zh-p">過去幾年，我哋喺ERP項目嘅每個階段都被請入批發分銷企業——選型之前、實施途中，以及上線崩潰之後。無論係安省、卑詩省定係亞伯達省，問題極少係獨一無二嘅。唔同公司、唔同系統、唔同供應商，出現嘅係相同嘅失敗。</p>
+
+  <p>These are not anecdotes. They are patterns.</p>
+  <p class="zh-p">呢啲唔係個別事件，係規律。</p>
+
+  <div class="pattern-grid">
+    <div class="pattern-card">
+      <div class="pattern-card-label">Data Migration</div>
+      <div class="pattern-card-label-zh">數據遷移</div>
+      <div class="pattern-card-stat">68%</div>
+      <p class="pattern-card-desc">of go-live failures we've investigated had incomplete or unchecked data migration as a contributing cause. Customer records, pricing tiers, and product specs were assumed to have transferred correctly — and were not.</p>
+      <div class="bi-divider"></div>
+      <p class="pattern-card-desc-zh">我哋調查過的上線失敗案例中，有六成八涉及不完整或未經核實的數據遷移。客戶資料、定價層級同產品規格被假設成功遷移——但實際上並非如此。</p>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-card-label">Training Timing</div>
+      <div class="pattern-card-label-zh">培訓時機</div>
+      <div class="pattern-card-stat">6 wks</div>
+      <p class="pattern-card-desc">Average gap between staff training and go-live in failed projects we've seen. By the time the new system is live, staff have forgotten the workflows. One session, months earlier, is not training.</p>
+      <div class="bi-divider"></div>
+      <p class="pattern-card-desc-zh">失敗項目中，員工培訓與正式上線之間的平均間隔。新系統上線時，員工早已忘記操作流程。幾個月前搞一次培訓，根本唔夠用。</p>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-card-label">B2B Pricing Loss</div>
+      <div class="pattern-card-label-zh">B2B定價流失</div>
+      <div class="pattern-card-stat">400+</div>
+      <p class="pattern-card-desc">Monthly order errors generated at one Mississauga food wholesaler after their new ERP could not support the tiered B2B pricing structure they had used with 900+ clients for 15 years.</p>
+      <div class="bi-divider"></div>
+      <p class="pattern-card-desc-zh">密西沙加一家食品批發商，因新ERP無法支援其服務900+客戶長達15年嘅分級B2B定價結構，每月產生嘅訂單錯誤數量。</p>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-card-label">Rollback Plans</div>
+      <div class="pattern-card-label-zh">回退方案</div>
+      <div class="pattern-card-stat">0</div>
+      <p class="pattern-card-desc">In the majority of failed go-lives we've assessed, there was no documented rollback plan. When the cutover fails, businesses have no path back — and no path forward until someone builds one under pressure.</p>
+      <div class="bi-divider"></div>
+      <p class="pattern-card-desc-zh">我哋評估過的大多數上線失敗案例中，都冇任何書面回退方案。切換失敗時，企業既冇後路可退，又冇前路可走，直到有人喺巨大壓力下重新搭建出路。</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">What a Failed Go-Live Actually Looks Like<span class="zh-title">上線失敗實際係咩樣</span></h2>
+
+  <p>The failure is rarely dramatic on paper. The implementation partner reports that the system is ready. The project manager signs off. The cutover happens on a Friday night. By Monday morning, staff cannot look up a customer, cannot process an order, and cannot reach anyone from the vendor.</p>
+  <p class="zh-p">失敗喺紙面上通常並唔係好戲劇性。實施合作方報告話系統準備好喇。項目經理簽字確認。切換喺週五晚上完成。到星期一早上，員工查唔到客戶資料，處理唔到訂單，又聯絡唔到供應商任何人。</p>
+
+  <p>In one engagement — a food distribution business in Hamilton with 2,800 active customer accounts — the ERP cutover left every customer record either missing or corrupted in the new system. Order processing halted for 72 hours. The implementation partner withdrew, citing scope disputes, on the second day of the crisis.</p>
+  <p class="zh-p">喺其中一個項目——漢密爾頓一家擁有2,800個活躍客戶帳戶的食品分銷商——ERP切換後，新系統內的每一條客戶記錄或丟失或損壞。訂單處理中斷72小時。實施合作方以範圍爭議為由，喺危機爆發第二日撤離現場。</p>
+
+  <div class="quote-block">
+    <p class="quote-text">"We were told the system was ready. We had no reason to think it wasn't. On Monday morning we couldn't ship a single order. By Wednesday we still couldn't. The vendor's project manager stopped answering the phone."</p>
+    <div class="bi-divider-light"></div>
+    <p class="quote-text-zh">「佢哋話系統準備好喇。我哋冇理由懷疑。但係星期一早上，我哋一張訂單都出唔到。到星期三仲係咁。供應商嘅項目經理收唔到電話。」</p>
+    <div class="quote-attr">— Operations Director, Food Wholesale Distributor, Ontario (client identity withheld)</div>
+    <div class="quote-attr-zh">— 運營總監，安省食品批發分銷商（客戶身份保密）</div>
+  </div>
+
+  <h2 class="section-title">The Common Thread: Misaligned Incentives<span class="zh-title">共同主線：激勵機制不一致</span></h2>
+
+  <p>ERP implementation partners are paid to deploy the software. They are not paid for what happens after. Their incentive is to reach go-live, close the project, and move on. Your incentive is for the business to work correctly on day one. These are not the same incentive.</p>
+  <p class="zh-p">ERP實施合作方係為部署軟件而收費嘅，唔係為之後嘅事負責。佢哋嘅動力係到達上線節點、結束項目、繼續下一個。而你嘅動力係業務喺第一日就能正常運行。呢兩種動力並唔一樣。</p>
+
+  <p>This misalignment is not a character flaw — it is a structural problem in how most ERP projects are contracted. The fix is not to find a better vendor. It is to have an independent party whose only job is to make sure your business is protected before, during, and after cutover.</p>
+  <p class="zh-p">呢種不一致唔係道德問題，而係大多數ERP項目合約結構上嘅根本缺陷。解決方法唔係搵一個更好嘅供應商，而係有一個獨立顧問，佢唯一嘅工作就係確保你嘅業務喺切換前、切換中同切換後都受到保護。</p>
+
+  <div class="page-footer">
+    <div class="page-footer-text">Meridian Advisory · ERP Upgrade Guide · 2025</div>
+    <div class="confidential-tag">Confidential · 機密</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 4: WHY MOST UPGRADES FAIL                            -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-logo">Meridian Advisory</div>
+    <div class="page-header-section">Why Upgrades Fail · 升級點解會失敗</div>
+  </div>
+
+  <div class="section-label">Section 02 · 第二節</div>
+  <h1 class="page-title">The Seven Root Causes of a Failed ERP Upgrade<span class="zh-title">ERP升級失敗嘅七個根本原因</span></h1>
+
+  <p>When we conduct a post-mortem on a failed ERP project, we consistently find the same seven conditions. They are rarely present alone — usually four or five overlap, which is why the failure feels total rather than fixable.</p>
+  <p class="zh-p">每次我哋對一個失敗ERP項目做事後檢討，都會發現同樣嘅七個狀況。呢啲狀況極少單獨出現——通常係四至五個同時存在，所以失敗感覺係全面性嘅，而唔係某一個問題。</p>
+
+  <div class="failure-list">
+    <div class="failure-item">
+      <div class="failure-number">01</div>
+      <div class="failure-content">
+        <div class="failure-title">Hard cutover with no parallel-run period</div>
+        <div class="failure-title-zh">硬切換，無平行運行期</div>
+        <p class="failure-desc">The legacy system is decommissioned the moment the new system goes live. There is no period where both run simultaneously for validation. When something breaks — and something always breaks — there is nowhere to go.</p>
+        <p class="failure-desc-zh">新系統上線嘅瞬間，舊系統就被停用。冇任何時間讓兩套系統並行運行以作驗證。一旦出事——而出事係必然嘅——就完全冇後路。</p>
+      </div>
+    </div>
+    <div class="failure-item">
+      <div class="failure-number">02</div>
+      <div class="failure-content">
+        <div class="failure-title">Data migration not validated before cutover</div>
+        <div class="failure-title-zh">數據遷移未在切換前完成驗證</div>
+        <p class="failure-desc">Data is migrated and assumed to be correct. Customer accounts, product master records, and pricing configurations are not reconciled against the source system. Errors surface only under live order volumes.</p>
+        <p class="failure-desc-zh">數據遷移完成後被假設為正確，客戶帳戶、產品主記錄同定價配置均未與源系統核對。錯誤只係喺真實訂單量下先浮現出嚟。</p>
+      </div>
+    </div>
+    <div class="failure-item">
+      <div class="failure-number">03</div>
+      <div class="failure-content">
+        <div class="failure-title">"Soft knowledge" not captured before migration</div>
+        <div class="failure-title-zh">「隱性知識」喺遷移前未被記錄</div>
+        <p class="failure-desc">Per-client delivery exceptions, handshake credit terms, multilingual product names, and 15 years of account-level special arrangements exist only in staff memory and legacy spreadsheets. None of it makes it into the new system.</p>
+        <p class="failure-desc-zh">每個客戶嘅送貨例外、口頭信貸安排、多語言產品名稱，以及15年積累嘅帳戶級別特殊安排，只存在於員工記憶同舊Excel表格中，完全無法進入新系統。</p>
+      </div>
+    </div>
+    <div class="failure-item">
+      <div class="failure-number">04</div>
+      <div class="failure-content">
+        <div class="failure-title">Training done once, too early</div>
+        <div class="failure-title-zh">培訓只做一次，且時機太早</div>
+        <p class="failure-desc">Staff are trained weeks or months before go-live in a classroom setting. By the time the system is live, they have no hands-on recall. There is no refresher. There is no on-site support during the first week of operation.</p>
+        <p class="failure-desc-zh">員工喺上線幾週甚至幾個月前喺課室環境培訓。到系統真正上線時，佢哋早冇咗實際操作記憶，又冇補訓，上線第一週亦冇現場支援。</p>
+      </div>
+    </div>
+    <div class="failure-item">
+      <div class="failure-number">05</div>
+      <div class="failure-content">
+        <div class="failure-title">No rollback plan</div>
+        <div class="failure-title-zh">無回退方案</div>
+        <p class="failure-desc">No one defines what "failure" looks like, and no one documents what the business would do if the go-live does not succeed. When failure occurs, decisions are made in panic rather than from a prepared playbook.</p>
+        <p class="failure-desc-zh">冇人定義「失敗」係咩樣，亦冇人記錄上線唔成功嘅應對方案。失敗發生時，決策全靠恐慌驅動，而唔係按預先制定嘅應急方案行事。</p>
+      </div>
+    </div>
+    <div class="failure-item">
+      <div class="failure-number">06</div>
+      <div class="failure-content">
+        <div class="failure-title">Scope creep not caught before go-live</div>
+        <div class="failure-title-zh">範圍蔓延喺上線前未被發現</div>
+        <p class="failure-desc">Requirements added during the project are absorbed by the implementation team without formal scope changes or timeline adjustments. The project arrives at go-live date with configuration that has never been fully tested.</p>
+        <p class="failure-desc-zh">項目過程中新增嘅需求被實施團隊靜默吸收，冇正式更改範圍或調整工期。項目到達上線日期時，存在從未被完整測試嘅配置。</p>
+      </div>
+    </div>
+    <div class="failure-item">
+      <div class="failure-number">07</div>
+      <div class="failure-content">
+        <div class="failure-title">Go-live timed to vendor schedule, not business calendar</div>
+        <div class="failure-title-zh">上線時間遷就供應商排期，而非企業業務週期</div>
+        <p class="failure-desc">The cutover is scheduled when the implementation partner's project slots allow, not when it is safest for the business — often landing during peak order periods, month-end close, or key customer billing cycles.</p>
+        <p class="failure-desc-zh">切換時間按實施合作方嘅項目檔期安排，而唔係按對企業最安全嘅時機——往往落喺訂單高峰期、月底結算或重要客戶帳單週期。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-text">Meridian Advisory · ERP Upgrade Guide · 2025</div>
+    <div class="confidential-tag">Confidential · 機密</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 5: HOW WE INTERVENE                                  -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-logo">Meridian Advisory</div>
+    <div class="page-header-section">Our Intervention Model · 我哋嘅介入模式</div>
+  </div>
+
+  <div class="section-label">Section 03 · 第三節</div>
+  <h1 class="page-title">How We Work: Three Entry Points, One Standard<span class="zh-title">我哋嘅工作方式：三個切入點，同一套標準</span></h1>
+
+  <p>We enter ERP projects at three different points depending on where the client is when they call us. The work is different at each stage — but the standard is the same: your business needs to work correctly, and we are not done until it does.</p>
+  <p class="zh-p">我哋喺三個唔同節點介入ERP項目，視乎客戶打電話嚟時處於哪個階段。每個階段嘅工作唔同——但標準係一樣嘅：你嘅業務需要正常運作，喺做到之前我哋唔會離場。</p>
+
+  <div class="process-row">
+    <div class="process-step">
+      <div class="process-step-num">Entry Point A · 切入點 A</div>
+      <div class="process-step-title">Before You Select</div>
+      <div class="process-step-title-zh">選型之前</div>
+      <p class="process-step-desc">We define your actual requirements — not a vendor's feature checklist — and run a structured evaluation to match you with a system your business can actually operate.</p>
+      <div class="bi-divider"></div>
+      <p class="process-step-desc-zh">我哋釐清你嘅實際需求——唔係供應商嘅功能清單——並進行結構性評估，為你配對一套業務上真正能操作嘅系統。</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">Entry Point B · 切入點 B</div>
+      <div class="process-step-title">During Implementation</div>
+      <div class="process-step-title-zh">實施期間</div>
+      <p class="process-step-desc">We act as your independent oversight layer: validating data migration, reviewing configuration decisions, designing the cutover plan, and preparing staff before go-live day.</p>
+      <div class="bi-divider"></div>
+      <p class="process-step-desc-zh">我哋擔任獨立監督層：驗證數據遷移、審查配置決策、制定切換方案，並喺上線日前完成員工準備工作。</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">Entry Point C · 切入點 C</div>
+      <div class="process-step-title">After a Failed Go-Live</div>
+      <div class="process-step-title-zh">上線失敗之後</div>
+      <p class="process-step-desc">We triage immediately, stabilise operations, recover what can be recovered, identify the root causes, and complete the upgrade the original team could not — with a phased plan that reduces risk at every step.</p>
+      <div class="bi-divider"></div>
+      <p class="process-step-desc-zh">我哋即時介入分流，穩定運營，搶救可挽回嘅數據，識別根本原因，並以分階段計劃完成原團隊未能完成嘅升級——每一步都降低風險。</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">What a Typical Engagement Looks Like<span class="zh-title">典型項目嘅介入樣貌</span></h2>
+
+  <table class="deliverables">
+    <thead>
+      <tr>
+        <th>Phase<span class="zh">階段</span></th>
+        <th>Timeline<span class="zh">時間軸</span></th>
+        <th>What We Deliver<span class="zh">我哋交付咩</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Diagnostic</strong><span class="zh-td">診斷</span></td>
+        <td>Weeks 1–2<span class="zh-td">第1–2週</span></td>
+        <td>Root-cause report separating system problems from process problems; written findings with prioritised recommendations<span class="zh-td">區分系統問題與流程問題的根因報告；書面調查結果附優先行動建議</span></td>
+      </tr>
+      <tr>
+        <td><strong>Stabilisation</strong><span class="zh-td">穩定</span></td>
+        <td>Weeks 2–3<span class="zh-td">第2–3週</span></td>
+        <td>Interim operating procedures; emergency data recovery if required; daily management checkpoint<span class="zh-td">臨時運營程序；如有需要進行緊急數據恢復；每日管理層匯報節點</span></td>
+      </tr>
+      <tr>
+        <td><strong>Recovery / Completion</strong><span class="zh-td">恢復/完成</span></td>
+        <td>Weeks 3–11<span class="zh-td">第3–11週</span></td>
+        <td>Phased go-live plan; data migration with field-level validation; staff training immediately before go-live; on-site hypercare support<span class="zh-td">分階段上線計劃；字段級驗證的數據遷移；上線前即時員工培訓；現場強化支援</span></td>
+      </tr>
+      <tr>
+        <td><strong>Handover</strong><span class="zh-td">交接</span></td>
+        <td>Week 11–12<span class="zh-td">第11–12週</span></td>
+        <td>Documented operating procedures; post-mortem for future reference; 30-day post-handover availability<span class="zh-td">書面化運營程序；供日後參考的事後檢討；交接後30天持續聯絡支援</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="timeline-note">
+    <strong>Fixed-scope, fixed-fee.</strong> We quote a defined scope before we start. If the project grows, we tell you before we absorb the cost. You will not receive a surprise invoice at the end.
+    <div class="timeline-note-zh"><strong class="zh" style="font-weight:700;color:var(--dark);">固定範圍，固定費用。</strong>我哋喺開始前提供明確範圍報價。如項目範圍擴大，我哋會喺吸納成本之前先告知你。你唔會喺最後收到意想唔到嘅帳單。</div>
+  </div>
+
+  <h2 class="section-title">What We Don't Do<span class="zh-title">我哋唔做咩</span></h2>
+
+  <p>We are not an ERP reseller. We do not receive commissions from software vendors. We do not have a preferred system we are trying to place with every client. Our recommendation is based on your business requirements — not on which vendor pays us more.</p>
+  <p class="zh-p">我哋唔係ERP經銷商。我哋唔收軟件供應商佣金。我哋冇任何想要推銷給每個客戶嘅「偏好系統」。我哋嘅建議基於你嘅業務需求——唔係基於哪個供應商俾我哋更多錢。</p>
+
+  <p>We also do not write reports that sit on a shelf. Every engagement ends with something operational: a working system, a validated configuration, or a documented plan that your internal team can execute without us.</p>
+  <p class="zh-p">我哋亦唔係寫完報告就束之高閣嗰種。每一個項目都以可運作嘅交付物作結：一套正常運行嘅系統、一份已驗證嘅配置，或者一個你嘅內部團隊可以獨立執行嘅書面計劃。</p>
+
+  <div class="page-footer">
+    <div class="page-footer-text">Meridian Advisory · ERP Upgrade Guide · 2025</div>
+    <div class="confidential-tag">Confidential · 機密</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 6: CASE SUMMARIES                                    -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-logo">Meridian Advisory</div>
+    <div class="page-header-section">Case Summaries · 案例一覽</div>
+  </div>
+
+  <div class="section-label">Section 04 · 第四節</div>
+  <h1 class="page-title">What This Looks Like in Practice<span class="zh-title">實際案例一覽</span></h1>
+
+  <p>The following are summaries of three engagements with Canadian wholesale distributors. Client names and identifying details have been changed.</p>
+  <p class="zh-p">以下係三個加拿大批發分銷商項目嘅摘要。客戶名稱及識別資料均已更改。</p>
+
+  <!-- Case 1 -->
+  <div class="case-card">
+    <div class="case-card-header">
+      <div class="case-card-title">
+        Failed ERP Go-Live Stabilised and Completed After Implementation Partner Withdrew
+        <span class="zh">ERP上線失敗後穩定並完成——實施合作方撤離後的救援</span>
+      </div>
+      <div class="case-card-tag">Ontario · 安省 · Food Wholesale · 食品批發</div>
+    </div>
+    <div class="case-card-body">
+      <div class="case-card-col">
+        <div class="case-col-label">The Situation</div>
+        <div class="case-col-label-zh">情況</div>
+        <p class="case-col-text">A food wholesaler's ERP cutover left 2,800 customer records unreadable. Order processing stopped for 72 hours. The implementation partner withdrew on day two.</p>
+        <p class="case-col-text-zh">一家食品批發商的ERP切換後，2,800條客戶記錄全部無法讀取。訂單處理中斷72小時。實施合作方喺第二日撤離現場。</p>
+      </div>
+      <div class="case-card-col">
+        <div class="case-col-label">What We Did</div>
+        <div class="case-col-label-zh">我哋做咗咩</div>
+        <p class="case-col-text">Arrived day three. Restored emergency legacy access. Ran a 5-day data recovery sprint. Identified 7 root causes. Completed the upgrade in a phased plan over 18 days.</p>
+        <p class="case-col-text-zh">第三日到場。恢復緊急舊系統存取。進行5日數據恢復衝刺。識別7個根本原因。以分階段計劃喺18日內完成升級。</p>
+      </div>
+      <div class="case-card-col">
+        <div class="case-col-label">Result</div>
+        <div class="case-col-label-zh">結果</div>
+        <p class="case-col-text">Operations fully restored. All 2,800+ customer records recovered. System stable before peak season. Staff retrained with on-site support for 30 days post-go-live.</p>
+        <p class="case-col-text-zh">業務全面恢復。2,800+客戶記錄全部搶救成功。系統喺旺季前穩定。上線後30日現場陪跑員工補訓。</p>
+      </div>
+    </div>
+    <div class="case-metrics">
+      <div class="case-metric">
+        <div class="case-metric-val">72hrs</div>
+        <div class="case-metric-label">Order processing restored</div>
+        <div class="case-metric-label-zh">訂單處理恢復</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">2,800+</div>
+        <div class="case-metric-label">Customer records recovered</div>
+        <div class="case-metric-label-zh">客戶記錄搶救成功</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">18d</div>
+        <div class="case-metric-label">Full system stable</div>
+        <div class="case-metric-label-zh">系統全面穩定</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case 2 -->
+  <div class="case-card">
+    <div class="case-card-header">
+      <div class="case-card-title">
+        Wrong ERP Selected and Replaced — 400+ Monthly Order Errors Eliminated
+        <span class="zh">選錯ERP並完成替換——每月400+訂單錯誤全面消除</span>
+      </div>
+      <div class="case-card-tag">Ontario · 安省 · Food Wholesale · 食品批發</div>
+    </div>
+    <div class="case-card-body">
+      <div class="case-card-col">
+        <div class="case-col-label">The Situation</div>
+        <div class="case-col-label-zh">情況</div>
+        <p class="case-col-text">A wholesaler with 1,200+ SKUs was sold an enterprise retail ERP built for chains ten times their size. The system could not support their B2B pricing structure, producing 400+ errors monthly.</p>
+        <p class="case-col-text-zh">一家擁有1,200+ SKU的批發商被銷售了一套針對十倍規模零售連鎖嘅企業ERP。系統無法支援其B2B定價結構，每月產生400+錯誤。</p>
+      </div>
+      <div class="case-card-col">
+        <div class="case-col-label">What We Did</div>
+        <div class="case-col-label-zh">我哋做咗咩</div>
+        <p class="case-col-text">Ran a 3-week diagnostic. Produced a root-cause report with vendor shortlist. Managed data migration with a soft-knowledge capture phase before any data moved.</p>
+        <p class="case-col-text-zh">進行3週診斷。提供附供應商候選名單嘅根因報告。喺任何數據遷移之前，先進行隱性知識捕捉階段。</p>
+      </div>
+      <div class="case-card-col">
+        <div class="case-col-label">Result</div>
+        <div class="case-col-label-zh">結果</div>
+        <p class="case-col-text">Right-sized replacement live in 11 weeks. B2B pricing accuracy restored to 92%. Zero data losses. Long-standing client accounts retained throughout transition.</p>
+        <p class="case-col-text-zh">適配替代方案喺11週內上線。B2B定價準確度恢復至92%。零數據損失。長期客戶帳戶喺整個過渡期間完整保留。</p>
+      </div>
+    </div>
+    <div class="case-metrics">
+      <div class="case-metric">
+        <div class="case-metric-val">400+</div>
+        <div class="case-metric-label">Monthly errors eliminated</div>
+        <div class="case-metric-label-zh">每月錯誤消除</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">92%</div>
+        <div class="case-metric-label">Pricing accuracy restored</div>
+        <div class="case-metric-label-zh">定價準確度恢復</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">11wks</div>
+        <div class="case-metric-label">Replacement live</div>
+        <div class="case-metric-label-zh">替換方案上線</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case 3 -->
+  <div class="case-card">
+    <div class="case-card-header">
+      <div class="case-card-title">
+        B2B Pricing Engine Rebuilt After Migration — Invoice Disputes Down 94%
+        <span class="zh">遷移後重建B2B定價引擎——發票糾紛下降94%</span>
+      </div>
+      <div class="case-card-tag">BC · 卑詩省 · Food Distribution · 食品分銷</div>
+    </div>
+    <div class="case-card-body">
+      <div class="case-card-col">
+        <div class="case-col-label">The Situation</div>
+        <div class="case-col-label-zh">情況</div>
+        <p class="case-col-text">After a platform migration, 650+ restaurant accounts were seeing wrong prices. Staff were manually correcting 80+ invoices daily. The backlog was growing faster than it was being cleared.</p>
+        <p class="case-col-text-zh">平台遷移後，650+餐廳客戶帳戶出現錯誤定價。員工每日人手更正80+張發票，積壓速度遠快過處理速度。</p>
+      </div>
+      <div class="case-card-col">
+        <div class="case-col-label">What We Did</div>
+        <div class="case-col-label-zh">我哋做咗咩</div>
+        <p class="case-col-text">Audited the new system's pricing architecture. Rebuilt pricing configuration within the existing platform — no system replacement required. Validated every account against legacy contract terms.</p>
+        <p class="case-col-text-zh">審計新系統嘅定價架構。喺現有平台內重建定價配置——無需替換系統。逐一核對每個帳戶與舊合約條款。</p>
+      </div>
+      <div class="case-card-col">
+        <div class="case-col-label">Result</div>
+        <div class="case-col-label-zh">結果</div>
+        <p class="case-col-text">Invoice disputes down 94% in six weeks. Manual correction eliminated. Staff trained to self-manage future account and rate changes without consultant dependency.</p>
+        <p class="case-col-text-zh">六週內發票糾紛下降94%。人手更正工作全面消除。員工已培訓，可自行管理日後帳戶及費率變更，無需再依賴顧問。</p>
+      </div>
+    </div>
+    <div class="case-metrics">
+      <div class="case-metric">
+        <div class="case-metric-val">94%</div>
+        <div class="case-metric-label">Invoice dispute reduction</div>
+        <div class="case-metric-label-zh">發票糾紛下降</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">80+</div>
+        <div class="case-metric-label">Daily corrections eliminated</div>
+        <div class="case-metric-label-zh">每日人手更正消除</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">6wks</div>
+        <div class="case-metric-label">Full pricing accuracy</div>
+        <div class="case-metric-label-zh">定價全面準確</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-text">Meridian Advisory · ERP Upgrade Guide · 2025</div>
+    <div class="confidential-tag">Confidential · 機密</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 7: FAQ                                               -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-logo">Meridian Advisory</div>
+    <div class="page-header-section">Common Questions · 常見問題</div>
+  </div>
+
+  <div class="section-label">Section 05 · 第五節</div>
+  <h1 class="page-title">Questions We Are Usually Asked<span class="zh-title">常被問到嘅問題</span></h1>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-icon">Q</span> Our ERP vendor says everything is on track. Do we really need an independent advisor?</div>
+    <div class="faq-q-zh">我哋嘅ERP供應商話一切順利。我哋真係需要獨立顧問嗎？</div>
+    <p class="faq-a">Your vendor is paid to complete the implementation. Their definition of "on track" is whether they will hit their contractual go-live date — not whether your business will work correctly afterwards. An independent advisor has no stake in the vendor's timeline. Our only stake is your outcome.</p>
+    <p class="faq-a-zh">你嘅供應商係為完成實施而收費。佢哋所說嘅「順利」係指能否按合約上線日期交貨——唔係你嘅業務之後係咪能正常運作。獨立顧問唔受供應商工期限制。我哋唯一嘅利益係你嘅結果。</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-icon">Q</span> We already went live and it failed. Is it too late to call you?</div>
+    <div class="faq-q-zh">我哋已經上線且失敗咗。而家打俾你哋係咪太遲？</div>
+    <p class="faq-a">No — this is actually when we do some of our most focused work. The first 72 hours after a failed go-live are the highest-leverage period. The faster we can triage, the more options you have. We have been called in on day three of a crisis and stabilised operations within a week. Call as soon as you know something is wrong.</p>
+    <p class="faq-a-zh">唔遲——呢個時刻其實係我哋做最集中工作嘅時候。上線失敗後嘅首72小時係槓桿最高嘅時期。我哋介入越快，你嘅選擇越多。我哋試過喺危機第三日被召入，並喺一週內穩定運營。一知道出事就打電話嚟。</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-icon">Q</span> Can you tell us whether our chosen ERP is the right one before we sign a contract?</div>
+    <div class="faq-q-zh">喺簽合約之前，你哋可以告訴我哋揀嘅ERP係咪啱嘅嗎？</div>
+    <p class="faq-a">Yes — and this is the highest-ROI engagement we offer. A 2–3 week selection assessment, conducted before you sign, costs a fraction of what a wrong selection costs to unwind. We produce a written recommendation with the reasoning, and we have no commercial relationship with any ERP vendor, so the advice is independent.</p>
+    <p class="faq-a-zh">可以——而且呢個係我哋提供嘅回報最高嘅項目類型。2–3週嘅選型評估，喺簽約前進行，費用只係糾正錯誤選型代價嘅一小部分。我哋提供附理由嘅書面建議，並與任何ERP供應商冇商業關係，所以建議係完全獨立嘅。</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-icon">Q</span> How do we know your case study results are real?</div>
+    <div class="faq-q-zh">我哋點知你哋嘅案例結果係真實嘅？</div>
+    <p class="faq-a">We can arrange a reference conversation with a past client on request. We also provide a written scope of work before every engagement that defines exactly what we will deliver — so you have a basis for evaluating whether we delivered it.</p>
+    <p class="faq-a-zh">可按要求安排與過往客戶嘅推薦人對話。我哋亦喺每個項目前提供書面工作範圍，清楚列明我哋將交付咩——讓你有依據評估我哋係咪做到。</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-icon">Q</span> We have an internal IT team. What do you add that they can't do?</div>
+    <div class="faq-q-zh">我哋有內部IT團隊。你哋能補充佢哋做唔到嘅咩？</div>
+    <p class="faq-a">Your internal IT team knows your systems. We know what goes wrong in ERP projects across dozens of wholesale businesses — and we have the documented playbooks, data validation frameworks, and vendor negotiation experience that comes from having seen the same failures many times. These are complementary, not competing.</p>
+    <p class="faq-a-zh">你嘅內部IT團隊了解你嘅系統。我哋了解幾十個批發業ERP項目中出現咩問題——我哋有經多次失敗積累出嚟嘅書面應急手冊、數據驗證框架同供應商談判經驗。呢兩種能力係互補嘅，唔係競爭嘅。</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-icon">Q</span> What does this cost?</div>
+    <div class="faq-q-zh">費用係幾多？</div>
+    <p class="faq-a">Engagements are scoped and priced individually based on the size of the business, the complexity of the situation, and how much work has already been done. A diagnostic engagement typically runs 2–3 weeks. We provide a fixed-fee quote before we start. We do not charge by the hour for implementation work — you will know the total cost before any work begins.</p>
+    <p class="faq-a-zh">項目按企業規模、情況複雜度同已完成工作量獨立確定範圍及報價。診斷項目通常需要2–3週。我哋喺開始前提供固定費用報價。實施工作唔按小時收費——喺任何工作開始前，你就會知道總費用。</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-q-icon">Q</span> Are you familiar with [specific ERP system]?</div>
+    <div class="faq-q-zh">你哋熟唔熟悉[特定ERP系統]？</div>
+    <p class="faq-a">We work across the mid-market ERP landscape — including systems commonly used by Canadian wholesale distributors. Our diagnostic methodology is system-agnostic: we assess configuration, data, and process regardless of which platform is involved. The first conversation will tell us quickly whether we are the right fit for your specific situation.</p>
+    <p class="faq-a-zh">我哋喺整個中型市場ERP範疇工作——包括加拿大批發分銷商常用嘅系統。我哋嘅診斷方法論係系統無關嘅：無論涉及哪個平台，我哋都評估配置、數據同流程。第一次對話就能快速判斷我哋係咪你嘅具體情況嘅合適人選。</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-text">Meridian Advisory · ERP Upgrade Guide · 2025</div>
+    <div class="confidential-tag">Confidential · 機密</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PAGE 8: CTA                                               -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page cta-page">
+  <div class="cta-inner">
+    <div class="cta-eyebrow">Next Step</div>
+    <div class="cta-eyebrow-zh">下一步</div>
+    <h2 class="cta-headline">Book a 30-Minute<br>Diagnostic Call</h2>
+    <div class="cta-headline-zh">預約30分鐘<br>診斷電話</div>
+    <p class="cta-sub">No sales pitch. No commitment. We ask you eight questions about your current situation, and we tell you honestly whether we think you have a problem that warrants independent support.</p>
+    <p class="cta-sub-zh">無銷售推介。無需承諾。我哋會問你八個關於現況嘅問題，然後老實告訴你，你嘅情況係咪需要獨立支援。</p>
+
+    <div class="cta-offer">
+      <div class="cta-offer-title">In 30 minutes, you'll know:</div>
+      <div class="cta-offer-title-zh">30分鐘內，你會知道：</div>
+      <ul class="cta-offer-list">
+        <li>
+          Whether your current ERP project has the conditions we associate with go-live failures
+          <span class="zh-li">你現有嘅ERP項目係咪具備我哋所識別嘅上線失敗條件</span>
+        </li>
+        <li>
+          Which of the seven root causes, if any, are present in your situation
+          <span class="zh-li">七個根本原因中，有冇任何一個出現喺你嘅情況</span>
+        </li>
+        <li>
+          What an independent advisory engagement would look like for your specific case
+          <span class="zh-li">針對你具體案例，獨立顧問介入會係點樣</span>
+        </li>
+        <li>
+          Whether you need us at all — and if not, we'll tell you that too
+          <span class="zh-li">你係咪根本唔需要我哋——如果係，我哋會直接咁話你知</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="cta-contact">
+      <strong style="color: rgba(255,255,255,0.82); display:block; margin-bottom:6px;">Meridian Advisory — Wholesale &amp; Distribution Practice · 批發及分銷業務</strong>
+      contact@meridianadvisory.ca<br>
+      meridianadvisory.ca/contact
+    </div>
+
+    <div class="cta-logo">Meridian Advisory</div>
+  </div>
+</div>
+
+</body>
+</html>
